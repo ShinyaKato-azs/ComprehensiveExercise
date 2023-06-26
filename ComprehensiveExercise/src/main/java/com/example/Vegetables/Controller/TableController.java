@@ -10,6 +10,7 @@ public class TableController {
 	public String getVegetables() {
 
 		return "Vegetables/vegetables";
+
 	}
 
 }
