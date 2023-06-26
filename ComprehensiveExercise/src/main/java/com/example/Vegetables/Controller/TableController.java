@@ -25,11 +25,11 @@ public class TableController {
 	@GetMapping("/vegetables")
 	public String getVegetables(Model model) {
 
-		List<Items> Items = applicationService.MakeVegetableArray();
-		model.addAttribute("Items", Items);
+		List<Items> items = applicationService.makeVegetableArray();
+		model.addAttribute("Items", items);
 
-		List<Items> DbItems = itemServiceImpl.getItems();
-		log.info(DbItems.toString());
+		List<Items> dbItems = itemServiceImpl.getItems();
+		log.info(dbItems.toString());
 
 		return "Vegetables/vegetables";
 

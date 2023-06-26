@@ -9,29 +9,29 @@ import com.example.Vegetables.Items;
 @Service
 public class ApplicationService {
 
-	public ArrayList<Items> MakeVegetableArray() {
+	public ArrayList<Items> makeVegetableArray() {
 
-		ArrayList<Items> Items = new ArrayList<>();
+		ArrayList<Items> items = new ArrayList<>();
 
 		//キャベツ、大根、ニンジンをインスタンス化
-		Items Cabbage = new Items();
-		Cabbage.setId(1);
-		Cabbage.setName("キャベツ");
+		Items cabbage = new Items();
+		cabbage.setId(1);
+		cabbage.setName("キャベツ");
 
-		Items Radish = new Items();
-		Radish.setId(2);
-		Radish.setName("大根");
+		Items radish = new Items();
+		radish.setId(2);
+		radish.setName("大根");
 
-		Items Carrot = new Items();
-		Carrot.setId(3);
-		Carrot.setName("ニンジン");
+		Items carrot = new Items();
+		carrot.setId(3);
+		carrot.setName("ニンジン");
 
 		//配列に格納
-		Items.add(Cabbage);
-		Items.add(Radish);
-		Items.add(Carrot);
+		items.add(cabbage);
+		items.add(radish);
+		items.add(carrot);
 
-		return Items;
+		return items;
 
 	}
 
