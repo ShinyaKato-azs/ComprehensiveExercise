@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.Vegetables.Items;
 
 @Service
-public class ApplicationService {
+public class MakeArray {
 
 	public ArrayList<Items> makeVegetableArray() {
 
