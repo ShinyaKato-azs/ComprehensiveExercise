@@ -10,17 +10,9 @@
             <th>商品ID </th>
             <th>商品名</th>
         </tr>
-        <tr> 
-            <td>1</td>
-            <td>キャベツ</td>
-        </tr>
-         <tr> 
-            <td>2</td>
-            <td>大根</td>
-        </tr>
-         <tr> 
-            <td>3</td>
-            <td>ニンジン</td>
+        <tr th:each="items:${Items} "> 
+            <td th:text="${items.id}"></td>
+            <td th:text="${items.name}"></td>
         </tr>
     </table>
 </body>
