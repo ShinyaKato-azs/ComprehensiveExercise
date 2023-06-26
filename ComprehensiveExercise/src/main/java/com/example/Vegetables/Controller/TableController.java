@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.Service.ItemServiceImpl;
-import com.example.Service.MakeArray;
+//import com.example.Service.MakeArray;
 import com.example.Vegetables.Items;
 
 import lombok.extern.slf4j.Slf4j;
@@ -17,8 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class TableController {
 
-	@Autowired
-	private MakeArray makeArray;
+	//配列を廃止
+	//	@Autowired
+	//	private MakeArray makeArray;
 	@Autowired
 	private ItemServiceImpl itemServiceImpl;
 
@@ -30,6 +31,7 @@ public class TableController {
 
 		List<Items> dbItems = itemServiceImpl.getItems();
 		log.info(dbItems.toString());
+		model.addAttribute("dbItems", dbItems);
 
 		return "Vegetables/vegetables";
 

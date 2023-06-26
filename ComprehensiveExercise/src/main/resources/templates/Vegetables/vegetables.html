@@ -10,7 +10,7 @@
             <th>商品ID </th>
             <th>商品名</th>
         </tr>
-        <tr th:each="items:${Items} "> 
+        <tr th:each="items:${dbItems} "> 
             <td th:text="${items.id}"></td>
             <td th:text="${items.name}"></td>
         </tr>
