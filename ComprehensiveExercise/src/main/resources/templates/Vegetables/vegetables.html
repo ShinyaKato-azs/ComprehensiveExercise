@@ -15,11 +15,6 @@
             <td th:text="${items.name}"></td>
         </tr>
    </table>
-   <form th:action="@{/vegetables}" method="POST" th:object="${addForm}">
-	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"/input>
-	   <br>
-	   <input type="submit" value="送信" /input>
-   </form>
    
 </body>
 </html>
