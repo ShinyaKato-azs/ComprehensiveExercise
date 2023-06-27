@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Service.ItemServiceImpl;
 //import com.example.Service.MakeArray;
 import com.example.Vegetables.Items;
+import com.example.Vegetables.Form.AddForm;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,7 +27,7 @@ public class TableController {
 	private ItemServiceImpl itemServiceImpl;
 
 	@GetMapping("/vegetables")
-	public String getVegetables(Model model) {
+	public String getVegetables(Model model, @ModelAttribute AddForm form) {
 
 		//		List<Items> items = applicationService.makeVegetableArray();
 		//		model.addAttribute("Items", items);
@@ -40,9 +42,11 @@ public class TableController {
 	}
 
 	@PostMapping("/vegetables")
-	public String postVegetables() {
+	public String postVegetables(AddForm form) {
 
+		log.info(form.toString());
 		return "redirect:/vegetables";
+
 	}
 
 }

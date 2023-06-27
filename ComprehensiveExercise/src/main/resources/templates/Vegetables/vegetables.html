@@ -15,10 +15,10 @@
             <td th:text="${items.name}"></td>
         </tr>
    </table>
-   <form th:action="@{/vegetables}" method="POST">
-	   <input type="number" name="id" placeholder="商品IDを入力"/input>
+   <form th:action="@{/vegetables}" method="POST" th:object="${addForm}">
+	   <input type="number" name="id" th:field="*{id}" placeholder="商品IDを入力"/input>
 	   <br>
-	   <input type="text" name="name" placeholder="商品名を入力"/input>
+	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"/input>
 	   <br>
 	   <input type="submit" value="送信" /input>
    </form>
