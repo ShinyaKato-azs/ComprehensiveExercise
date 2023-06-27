@@ -26,7 +26,7 @@ public class TableController {
 	@Autowired
 	private ItemService itemService;
 
-	@GetMapping("/vegetables")
+	@GetMapping("/")
 	public String getVegetables(Model model, @ModelAttribute AddForm form) {
 
 		//		List<Items> items = applicationService.makeVegetableArray();
@@ -41,7 +41,14 @@ public class TableController {
 
 	}
 
-	@PostMapping("/vegetables")
+	@GetMapping("/input")
+	public String getVegetablesInput(@ModelAttribute AddForm form) {
+
+		return "Vegetables/vegetablesInput";
+
+	}
+
+	@PostMapping("/input")
 	public String postVegetables(AddForm form) {
 
 		log.info(form.toString());
@@ -54,7 +61,7 @@ public class TableController {
 		//DBに登録
 		itemService.addItem(item);
 
-		return "redirect:/vegetables";
+		return "redirect:/";
 
 	}
 
