@@ -48,7 +48,7 @@ public class TableController {
 
 	}
 
-	@PostMapping("/")
+	@PostMapping("/add")
 	public String postVegetables(AddForm form) {
 
 		log.info(form.toString());

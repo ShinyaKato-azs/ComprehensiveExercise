@@ -5,7 +5,7 @@
   <title>Vegetables</title>
 </head>
 <body>
-   <form th:action="@{/}" method="POST" th:object="${addForm}">
+   <form th:action="@{/add}" method="POST" th:object="${addForm}">
 	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"/input>
 	   <br>
 	   <input type="submit" value="送信" /input>
