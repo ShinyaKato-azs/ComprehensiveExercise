@@ -6,7 +6,11 @@
 </head>
 <body>
    <form th:action="@{/add}" method="POST" th:object="${addForm}">
-	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"/input>
+	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"
+	   th:errorclass="is-invaid"/input>
+	   <font color="red">
+		   <div th:errors="*{name}"></div>
+	   </font>
 	   <br>
 	   <input type="submit" value="送信" /input>
    </form>
