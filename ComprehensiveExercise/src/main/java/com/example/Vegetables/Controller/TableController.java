@@ -31,6 +31,7 @@ public class TableController {
 
 		List<Items> dbItems = itemServiceImpl.getItems();
 		log.info(dbItems.toString());
+		//モデルに登録してthymeleafに渡す
 		model.addAttribute("dbItems", dbItems);
 
 		return "Vegetables/vegetables";
