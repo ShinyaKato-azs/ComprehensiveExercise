@@ -49,7 +49,7 @@ public class TableController {
 		//formで受け取ったフィールドの値をitemクラスのインスタンスにコピー。
 		//modelMapperを使用してコピーしても可
 		Items item = new Items();
-		item.setId(form.getId());
+		item.setId(null);
 		item.setName(form.getName());
 		//DBに登録
 		itemService.addItem(item);

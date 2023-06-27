@@ -6,7 +6,6 @@ import lombok.Data;
 @Data
 public class AddForm {
 
-	private Integer id;
 	private String name;
 
 }
