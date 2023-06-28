@@ -64,7 +64,10 @@ public class TableController {
 		//modelMapperを使用してコピーしても可
 		Items item = new Items();
 		item.setId(null);
-		item.setName(form.getName());
+
+		String formName = form.getName();
+		//最後の文字をカットして、itemクラスのフィールドとして登録
+		item.setName(itemService.trimFormName(formName));
 		//DBに登録
 		itemService.addItem(item);
 

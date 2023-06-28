@@ -12,4 +12,7 @@ public interface ItemService {
 	//登録
 	public void addItem(Items item);
 
+	//登録時の文字カット機能
+	public String trimFormName(String formName);
+
 }
