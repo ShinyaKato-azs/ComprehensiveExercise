@@ -1,5 +1,6 @@
 package com.example.Vegetables.Form;
 
+import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
@@ -8,6 +9,7 @@ import lombok.Data;
 public class AddForm {
 
 	@NotBlank
+	@Max(4)
 	private String name;
 
 }
