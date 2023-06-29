@@ -32,6 +32,11 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public String trimFormName(String formName) {
 
+		//引数が0文字だったらエラー
+		if (formName.length() == 0) {
+			throw new IllegalArgumentException("文字列が不正です");
+		}
+
 		//文字列の長さを特定して、1文字分を引く
 		int endCharInt = formName.length() - 1;
 

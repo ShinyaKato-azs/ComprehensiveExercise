@@ -9,17 +9,7 @@ class itemServiceImplTest {
 	ItemServiceImpl itemServiceImpl = new ItemServiceImpl();
 
 	@Test
-	void test1() {
-
-		String trimmedMessage = itemServiceImpl.trimFormName("きゅうり");
-		String expected = "きゅう";
-
-		assertEquals(expected, trimmedMessage);
-
-	}
-
-	@Test
-	void test2() {
+	void threeLettersTest() {
 
 		String trimmedMessage = itemServiceImpl.trimFormName("とまと");
 		String expected = "とま";
@@ -29,17 +19,17 @@ class itemServiceImplTest {
 	}
 
 	@Test
-	void test3() {
+	void twoLettersTest() {
 
-		String trimmedMessage = itemServiceImpl.trimFormName("とまと ");
-		String expected = "とまと";
+		String trimmedMessage = itemServiceImpl.trimFormName("かぶ");
+		String expected = "か";
 
 		assertEquals(expected, trimmedMessage);
 
 	}
 
 	@Test
-	void test4() {
+	void oneLetterTest() {
 
 		String trimmedMessage = itemServiceImpl.trimFormName("あ");
 		String expected = "";
@@ -49,12 +39,11 @@ class itemServiceImplTest {
 	}
 
 	@Test
-	void test5() {
+	void emptyCharTest() {
 
-		String trimmedMessage = itemServiceImpl.trimFormName("corn");
-		String expected = "cor";
-
-		assertEquals(expected, trimmedMessage);
+		assertThrows(IllegalArgumentException.class, () -> {
+			itemServiceImpl.trimFormName("");
+		});
 
 	}
 
