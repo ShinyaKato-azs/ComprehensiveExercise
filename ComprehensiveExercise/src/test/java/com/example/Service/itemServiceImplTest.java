@@ -2,12 +2,29 @@ package com.example.Service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.SpyBean;
 
+import com.example.ItemsRepository.ItemsRepository;
+import com.example.Vegetables.Items;
+
+@SpringBootTest
 class itemServiceImplTest {
+	@SpyBean
+	private ItemsRepository repository;
+	@Autowired
+	ItemServiceImpl itemServiceImpl;
+	//	ItemServiceImpl itemServiceImpl = new ItemServiceImpl();
 
-	ItemServiceImpl itemServiceImpl = new ItemServiceImpl();
-
+	/**
+	 * trimFormNameメソッドのテストです
+	 */
 	@Test
 	void threeLettersTest() {
 
@@ -44,6 +61,31 @@ class itemServiceImplTest {
 		assertThrows(IllegalArgumentException.class, () -> {
 			itemServiceImpl.trimFormName("");
 		});
+
+	}
+
+	/**
+	 * getItemsメソッドのテストです
+	 */
+	@Test
+	void getItemsTest() {
+
+		Items mockItem = new Items();
+		mockItem.setId(1);
+		mockItem.setName("ごぼう");
+		/** mockの配列を用意する */
+		List<Items> mockItemsList = new ArrayList<>();
+		mockItemsList.add(mockItem);
+
+		/** getItemsが呼び出されたらmockの配列を返す */
+		Mockito.when(itemServiceImpl.getItems()).thenReturn(mockItemsList);
+		/** mockデータのフィールドをセット */
+		Items expectedItem = mockItemsList.get(0);
+		int expectedId = expectedItem.getId();
+		String expectedName = expectedItem.getName();
+		/** 等価チェック */
+		assertEquals(1, expectedId);
+		assertEquals("ごぼう", expectedName);
 
 	}
 
