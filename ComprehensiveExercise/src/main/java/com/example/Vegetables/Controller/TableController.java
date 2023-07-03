@@ -64,7 +64,7 @@ public class TableController {
 		//modelMapperを使用してコピーしても可
 		Items item = new Items();
 
-		//DB側で連番で振られるため、nullでセット　
+		//DB側で連番で振られるため、nullでセット（いらないかも）
 		item.setId(null);
 
 		String formName = form.getName();
