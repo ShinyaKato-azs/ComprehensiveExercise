@@ -14,7 +14,7 @@
         <tr th:each="items:${dbItems} "> 
             <td th:text="${items.id}"></td>
             <td th:text="${items.name}"></td>
-            <td><img th:src="@{/{items}.png(items=${items.id})}"></td>
+            <td><img th:src="@{/{items}.png(items=${items.id})}" width="300" height="200"></td>
         </tr>
    </table> 
    <a th:href="@{/input}">登録はこちら</a>
