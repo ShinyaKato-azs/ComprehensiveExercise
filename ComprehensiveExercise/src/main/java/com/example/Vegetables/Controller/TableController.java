@@ -63,6 +63,8 @@ public class TableController {
 		//formで受け取ったフィールドの値をitemクラスのインスタンスにコピー。
 		//modelMapperを使用してコピーしても可
 		Items item = new Items();
+
+		//DB側で連番で振られるため、nullでセット　
 		item.setId(null);
 
 		String formName = form.getName();
