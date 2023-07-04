@@ -80,7 +80,7 @@ class itemServiceImplTest {
 		/** getItemsが呼び出されたらmockの配列を返す */
 		Mockito.when(itemServiceImpl.getItems()).thenReturn(mockItemsList);
 		/** mockデータのフィールドをセット */
-		Items expectedItem = mockItemsList.get(0);
+		Items expectedItem = itemServiceImpl.getItems().get(0);
 		int expectedId = expectedItem.getId();
 		String expectedName = expectedItem.getName();
 		/** 等価チェック */
