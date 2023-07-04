@@ -6,6 +6,7 @@ import lombok.Data;
 @Data
 public class DetailForm {
 
+	private Integer Id;
 	private String name;
 
 }

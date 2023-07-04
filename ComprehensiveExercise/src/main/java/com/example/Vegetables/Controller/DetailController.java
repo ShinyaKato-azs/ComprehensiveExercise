@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Service.ItemService;
+import com.example.Vegetables.Items;
 import com.example.Vegetables.Form.DetailForm;
 
 @Controller
@@ -17,11 +18,14 @@ public class DetailController {
 	private ItemService itemService;
 
 	//詳細画面を返す
-	@GetMapping("/detail/{Id}")
-	public String getVegetablesDetail(@PathVariable("Id") Integer Id, @ModelAttribute DetailForm detailForm) {
+	@GetMapping("/detail/{itemId}")
+	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute DetailForm detailForm) {
 
 		//主キーで探して商品を1件返す
-		itemService.getItemOne(Id);
+		Items item = itemService.getItemOne(itemId);
+		//Formクラスにitemをコピー
+		detailForm.setId(itemId);
+		detailForm.setName(item.getName());
 
 		return "Vegetables/vegetablesDetail";
 
@@ -29,7 +33,7 @@ public class DetailController {
 
 	@PostMapping("/detail/update")
 	public String updateItem() {
-
+		//未実装
 		String string = "hoge";
 
 		return string;
