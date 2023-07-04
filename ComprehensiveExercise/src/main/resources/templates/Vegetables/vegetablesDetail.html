@@ -2,9 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"></meta>
-  <title>Vegetables</title>
+  <title>VegetableDetail</title>
 </head>
 <body>
-	hello
+	<h1>商品詳細</h1>
+	<form th:action="@{/detail/update}" method="POST" th:object="${detailForm}">
+	   <input type="text" name="name" th:field="*{name}"
+	   th:errorclass="is-invaid"/input>
+	   <font color="red">
+		   <div th:errors="*{name}"></div>
+	   </font>
+	   <br>
+	   <input type="submit" value="送信" /input>
+   </form>
+   <a th:href="@{/}">一覧に戻る</a>
 </body>
 </html>
