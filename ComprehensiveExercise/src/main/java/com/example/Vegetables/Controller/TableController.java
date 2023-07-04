@@ -51,9 +51,9 @@ public class TableController {
 	}
 
 	@GetMapping("/details")
-	public String getVegetablesDetails() {
+	public String getVegetablesDetail() {
 
-		return "Vegetables/vegetablesDetails";
+		return "Vegetables/vegetablesDetail";
 
 	}
 

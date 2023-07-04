@@ -1,6 +1,7 @@
 package com.example.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +16,14 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemsRepository repository;
 
+	//一覧取得機能
 	@Override
 	public List<Items> getItems() {
 
 		return repository.findAll();
 	}
 
+	//登録機能
 	@Transactional
 	@Override
 	public void addItem(Items item) {
@@ -29,6 +32,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	//1文字削除する機能
 	@Override
 	public String trimFormName(String formName) {
 
@@ -44,6 +48,17 @@ public class ItemServiceImpl implements ItemService {
 		String trimmedFormName = formName.substring(0, endCharInt);
 
 		return trimmedFormName;
+
+	}
+
+	//商品取得（1件）
+	@Override
+	public Items getItemOne(Integer itemId) {
+
+		Optional<Items> option = repository.findById(itemId);
+		Items item = option.orElse(null);
+
+		return item;
 
 	}
 
