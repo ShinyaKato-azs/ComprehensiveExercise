@@ -17,7 +17,9 @@
             <td th:text="${items.name}"></td>
             <td><img th:src="@{/{items}.png(items=${items.id})}" width="300" height="200"></td>
             <td style="text-align:center;">
-				<button>詳細</button>
+				<a th:href="@{'/detail/'+${items.id}}">
+					詳細
+				</a>
 			</td>
         </tr>
    </table> 

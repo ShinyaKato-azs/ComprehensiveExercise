@@ -50,13 +50,6 @@ public class TableController {
 
 	}
 
-	@GetMapping("/details")
-	public String getVegetablesDetail() {
-
-		return "Vegetables/vegetablesDetail";
-
-	}
-
 	@PostMapping("/add")
 	public String postVegetables(@ModelAttribute @Validated AddForm form, BindingResult bindingResult) {
 
