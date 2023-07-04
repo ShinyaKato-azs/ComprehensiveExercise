@@ -50,10 +50,10 @@ public class TableController {
 
 	}
 
-	@GetMapping("/update")
-	public String getVegetablesUpdate() {
+	@GetMapping("/details")
+	public String getVegetablesDetails() {
 
-		return "Vegetables/vegetablesUpdate";
+		return "Vegetables/vegetablesDetails";
 
 	}
 

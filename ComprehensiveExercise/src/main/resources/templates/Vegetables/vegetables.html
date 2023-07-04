@@ -17,10 +17,7 @@
             <td th:text="${items.name}"></td>
             <td><img th:src="@{/{items}.png(items=${items.id})}" width="300" height="200"></td>
             <td style="text-align:center;">
-				<button>更新</button>
-				<br>
-				<br>
-				<button style="color:white;background-color:red" onmouseover="this.style.background='crimson'" onmouseout="this.style.background='red'">削除</button>
+				<button>詳細</button>
 			</td>
         </tr>
    </table> 
