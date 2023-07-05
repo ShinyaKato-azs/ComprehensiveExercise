@@ -61,4 +61,12 @@ public class DetailController {
 		return "redirect:/";
 	}
 
+	//削除処理
+	@PostMapping("/detail/delete/{itemId}")
+	public String delteItem() {
+
+		return "redirect:/";
+
+	}
+
 }
