@@ -29,6 +29,14 @@
 	   <br>
 	   <input type="submit" value="送信" /input>
    </form>
+   <h2>商品の削除</h2>
+   <form th:action="@{'/detail/delete/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
+	   <input type="hidden" name="id" th:field="*{id}">
+	   <input type="hidden" name="name" th:field="*{name}">
+	   <button type="submit">この商品を削除</button>
+   </form>
+   <br>
+   <br>
    <a th:href="@{/}">一覧に戻る</a>
 </body>
 </html>

@@ -63,7 +63,12 @@ public class DetailController {
 
 	//削除処理
 	@PostMapping("/detail/delete/{itemId}")
-	public String delteItem() {
+	public String delteItem(@ModelAttribute DetailForm form) {
+
+		//postが正しく機能しているかログで確認
+		log.info(form.toString());
+		//		削除はIDの管理が面倒なのでコメントアウト（動作確認済み）
+		//		itemService.deleteItemOne(form.getId());
 
 		return "redirect:/";
 
