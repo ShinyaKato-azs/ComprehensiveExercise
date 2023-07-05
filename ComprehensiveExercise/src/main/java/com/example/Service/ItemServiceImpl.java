@@ -23,7 +23,7 @@ public class ItemServiceImpl implements ItemService {
 
 		List<Items> SortItems = repository.findAll();
 
-		Collections.sort(SortItems, (x, y) -> (x.getId() - y.getId()));
+		Collections.sort(SortItems, (x, y) -> x.getId() - y.getId());
 
 		return SortItems;
 

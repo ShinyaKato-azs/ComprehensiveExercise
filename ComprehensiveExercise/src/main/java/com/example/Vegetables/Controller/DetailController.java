@@ -2,6 +2,8 @@ package com.example.Vegetables.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -36,8 +38,14 @@ public class DetailController {
 
 	//更新処理
 	@PostMapping("/detail/update/{itemId}")
-	public String updateItem(@ModelAttribute DetailForm form,
+	public String updateItem(@ModelAttribute @Validated DetailForm form, BindingResult bindingResult,
 			@PathVariable("itemId") Integer itemId) {
+
+		if (bindingResult.hasErrors()) {
+
+			return getVegetablesDetail(itemId, form);
+
+		}
 
 		log.info(form.toString());
 
