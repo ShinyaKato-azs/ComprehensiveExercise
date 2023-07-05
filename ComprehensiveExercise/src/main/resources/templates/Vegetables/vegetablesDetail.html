@@ -19,7 +19,8 @@
 		</tr>
 	</table>
 	<h2>名前の変更</h2>
-	<form th:action="@{/detail/update}" method="POST" th:object="${detailForm}">
+	<form th:action="@{'/detail/update/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
+	   <input type="hidden" name="id" th:field="*{id}">
 	   <input type="text" name="name" th:field="*{name}"
 	   th:errorclass="is-invaid"/input>
 	   <font color="red">

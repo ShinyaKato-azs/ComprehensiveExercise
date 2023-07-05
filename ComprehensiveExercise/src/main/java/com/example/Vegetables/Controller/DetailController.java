@@ -11,7 +11,10 @@ import com.example.Service.ItemService;
 import com.example.Vegetables.Items;
 import com.example.Vegetables.Form.DetailForm;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
+@Slf4j
 public class DetailController {
 
 	@Autowired
@@ -32,9 +35,16 @@ public class DetailController {
 	}
 
 	//更新処理
-	@PostMapping("/detail/update")
-	public String updateItem() {
-		//未実装
+	@PostMapping("/detail/update/{itemId}")
+	public String updateItem(@ModelAttribute DetailForm form,
+			@PathVariable("itemId") Integer itemId) {
+
+		log.info(form.toString());
+
+		//idが一致する商品を持ってくる
+
+		//Items item = itemService.getItemOne(itemId);
+
 		return "redirect:/";
 	}
 
