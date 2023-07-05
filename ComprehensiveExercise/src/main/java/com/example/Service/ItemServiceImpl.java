@@ -1,5 +1,6 @@
 package com.example.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,7 +21,12 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public List<Items> getItems() {
 
-		return repository.findAll();
+		List<Items> SortItems = repository.findAll();
+
+		Collections.sort(SortItems, (x, y) -> (x.getId() - y.getId()));
+
+		return SortItems;
+
 	}
 
 	//登録機能
