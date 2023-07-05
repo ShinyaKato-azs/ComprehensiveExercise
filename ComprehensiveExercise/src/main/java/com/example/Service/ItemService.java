@@ -22,5 +22,6 @@ public interface ItemService {
 	public void updateItemOne(Items item);
 
 	//商品削除
+	public void deleteItemOne(Integer itemId);
 
 }

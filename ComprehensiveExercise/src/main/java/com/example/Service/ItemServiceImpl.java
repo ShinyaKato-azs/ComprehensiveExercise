@@ -76,4 +76,12 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	//商品削除
+	@Override
+	public void deleteItemOne(Integer itemId) {
+
+		repository.deleteById(itemId);
+
+	}
+
 }
