@@ -42,8 +42,10 @@ public class DetailController {
 		log.info(form.toString());
 
 		//idが一致する商品を持ってくる
-
-		//Items item = itemService.getItemOne(itemId);
+		Items item = itemService.getItemOne(itemId);
+		//nameだけを変更
+		item.setName(form.getName());
+		log.info(item.toString());
 
 		return "redirect:/";
 	}
