@@ -5,7 +5,7 @@
   <title>VegetableDetail</title>
 </head>
 <body>
-	<h1>商品詳細</h1>
+	<h2>商品詳細</h2>
 	 <table border="1" th:object="${detailForm}">
 		<tr>
 			<th>商品ID</th>
@@ -18,7 +18,7 @@
 			<td><img th:src="@{/{items}.png(items=*{id})}" width="300" height="200"></td>
 		</tr>
 	</table>
-	<h1>名前の変更</h1>
+	<h2>名前の変更</h2>
 	<form th:action="@{/detail/update}" method="POST" th:object="${detailForm}">
 	   <input type="text" name="name" th:field="*{name}"
 	   th:errorclass="is-invaid"/input>

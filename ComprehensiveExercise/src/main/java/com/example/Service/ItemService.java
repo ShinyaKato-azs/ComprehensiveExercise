@@ -15,7 +15,12 @@ public interface ItemService {
 	//登録時の文字カット機能
 	public String trimFormName(String formName);
 
-	//item取得（1件）
+	//商品取得（1件）
 	public Items getItemOne(Integer itemId);
+
+	//商品更新
+	public void updateItemOne(String itemName);
+
+	//商品削除
 
 }

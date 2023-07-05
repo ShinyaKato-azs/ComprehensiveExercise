@@ -31,12 +31,11 @@ public class DetailController {
 
 	}
 
+	//更新処理
 	@PostMapping("/detail/update")
 	public String updateItem() {
 		//未実装
-		String string = "hoge";
-
-		return string;
+		return "redirect:/";
 	}
 
 }
