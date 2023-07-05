@@ -64,7 +64,9 @@ public class ItemServiceImpl implements ItemService {
 
 	//商品更新
 	@Override
-	public void updateItemOne(String itemName) {
+	public void updateItemOne(Items item) {
+
+		repository.save(item);
 
 	}
 

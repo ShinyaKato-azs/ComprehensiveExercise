@@ -19,7 +19,7 @@ public interface ItemService {
 	public Items getItemOne(Integer itemId);
 
 	//商品更新
-	public void updateItemOne(String itemName);
+	public void updateItemOne(Items item);
 
 	//商品削除
 
