@@ -5,6 +5,7 @@
   <title>VegetableDetail</title>
 </head>
 <body>
+	<div class="itemTable" style="float:left; padding-left:3%; padding-right:10%;">
 	<h2>商品詳細</h2>
 	 <table border="1" th:object="${detailForm}">
 		<tr>
@@ -18,25 +19,29 @@
 			<td><img th:src="@{/{items}.png(items=*{id})}" width="300" height="200"></td>
 		</tr>
 	</table>
-	<h2>名前の変更</h2>
-	<form th:action="@{'/detail/update/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
-	   <input type="hidden" name="id" th:field="*{id}">
-	   <input type="text" name="name" th:field="*{name}"
-	   th:errorclass="is-invaid"/input>
-	   <font color="red">
-		   <div th:errors="*{name}"></div>
-	   </font>
-	   <br>
-	   <input type="submit" value="送信" /input>
-   </form>
-   <h2>商品の削除</h2>
-   <form th:action="@{'/detail/delete/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
-	   <input type="hidden" name="id" th:field="*{id}">
-	   <input type="hidden" name="name" th:field="*{name}">
-	   <button type="submit">この商品を削除</button>
-   </form>
-   <br>
-   <br>
-   <a th:href="@{/}">一覧に戻る</a>
+	 <a th:href="@{/}">一覧に戻る</a>
+	</div>
+	<div class="forms" style="float:left">
+		<h2>名前の変更</h2>
+		<form th:action="@{'/detail/update/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
+		   <input type="hidden" name="id" th:field="*{id}">
+		   <input type="text" name="name" th:field="*{name}"
+		   th:errorclass="is-invaid"/input>
+		   <font color="red">
+			   <div th:errors="*{name}"></div>
+		   </font>
+		   <br>
+		   <input type="submit" value="送信" /input>
+	   </form>
+	   <h2>商品の削除</h2>
+	   <form th:action="@{'/detail/delete/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
+		   <input type="hidden" name="id" th:field="*{id}">
+		   <input type="hidden" name="name" th:field="*{name}">
+		   <button type="submit" 
+		   style="background-color:red; color:azure;border-radius:10px;height:50px;">
+		   この商品を削除
+		   </button>
+	   </form>
+   </div>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <title>Vegetables</title>
 </head>
 <body>
-  <table border="1">
+  <table border="1" style="margin: 0 auto;">
         <tr> 
             <th>商品ID </th>
             <th>商品名</th>
@@ -13,7 +13,7 @@
             <th>更新・削除はここから</th>
         </tr>
         <tr th:each="items:${dbItems} "> 
-            <td th:text="${items.id}"></td>
+            <td th:text="${items.id}" style="text-align:center;"></td>
             <td th:text="${items.name}"></td>
             <td><img th:src="@{/{items}.png(items=${items.id})}" width="300" height="200"></td>
             <td style="text-align:center;">
