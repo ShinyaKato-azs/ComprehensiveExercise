@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.ItemsRepository.ItemsRepository;
+import com.example.Repository.ItemsRepository;
 import com.example.Vegetables.Items;
 
 @Service

@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
-import com.example.ItemsRepository.ItemsRepository;
+import com.example.Repository.ItemsRepository;
 import com.example.Vegetables.Items;
 
 @SpringBootTest
