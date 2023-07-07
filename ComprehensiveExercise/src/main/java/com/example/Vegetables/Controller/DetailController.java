@@ -32,7 +32,7 @@ public class DetailController {
 		detailForm.setId(itemId);
 		detailForm.setName(item.getName());
 
-		return "Vegetables/vegetablesDetail";
+		return "vegetables/vegetablesDetail";
 
 	}
 

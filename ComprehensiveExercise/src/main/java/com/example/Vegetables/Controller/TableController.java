@@ -39,14 +39,14 @@ public class TableController {
 		//モデルに登録してthymeleafに渡す
 		model.addAttribute("dbItems", dbItems);
 
-		return "Vegetables/vegetables";
+		return "vegetables/vegetables";
 
 	}
 
 	@GetMapping("/input")
 	public String getVegetablesInput(@ModelAttribute AddForm form) {
 
-		return "Vegetables/vegetablesInput";
+		return "vegetables/vegetablesInput";
 
 	}
 
