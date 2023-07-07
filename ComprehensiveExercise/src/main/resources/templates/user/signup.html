@@ -9,10 +9,16 @@
 		<h2>新規登録</h2>
 		<form th:action="@{/signup}" method="post" th:object="${signupForm}">
 			<p>ユーザー名</p>
-			<input type="text" name="userId" th:field="*{userId}"/>
+			<input type="text" name="userId" th:field="*{userId}" th:errorclass="is-invaid"/>
+			<font color="red">
+		 	  <div th:errors="*{userId}"></div>
+	   		</font>
 			<br>
 			<p>パスワード</p>
-			<input type="text" name="password" th:field="*{password}"/>
+			<input type="text" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
+			<font color="red">
+		 	  <div th:errors="*{password}"></div>
+	   		</font>
 			<br>
 			<br>
 			<button type="submit">登録</button>		
