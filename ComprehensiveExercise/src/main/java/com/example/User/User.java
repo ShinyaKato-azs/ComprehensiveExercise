@@ -10,7 +10,7 @@ import lombok.Data;
 @Table(name = "v_user")
 public class User {
 	@Id
-	private Integer userId;
+	private String userId;
 	private String password;
 
 }
