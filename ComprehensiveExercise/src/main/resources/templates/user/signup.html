@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>signup</title>
@@ -7,12 +7,12 @@
 <body>
 	<div class="contents" style="padding-left:40%;">
 		<h2>新規登録</h2>
-		<form action="" method="post">
+		<form th:action="@{/signup}" method="post" th:object="${signupForm}">
 			<p>ユーザー名</p>
-			<input type="text"/>
+			<input type="text" name="userId" th:field="*{userId}"/>
 			<br>
 			<p>パスワード</p>
-			<input type="text"/>
+			<input type="text" name="password" th:field="*{password}"/>
 			<br>
 			<br>
 			<button type="submit">登録</button>		
