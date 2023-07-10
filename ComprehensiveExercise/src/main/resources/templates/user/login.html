@@ -8,14 +8,23 @@
 	<div class="contents" style="padding-left:40%;">
 		<h2>ログイン</h2>
 		<form th:action="@{/login}" method="post">
+			<div th:if="${param.error}">
+				<p th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}"
+					th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"
+					style="color:red;">
+					ログイン失敗
+				</p>
+			</div>
 			<label for="userId">ユーザーID</label>
+			<br>
 			<input type="text" name="userId"/>
 			<br>
 			<label for="password">パスワード</label>
+			<br>
 			<input type="text" name="password"/>
 			<br>
 			<br>
-			<button type="submit">登録</button>		
+			<button type="submit">ログイン</button>		
 			<br>
 			<br>		
 		</form>
