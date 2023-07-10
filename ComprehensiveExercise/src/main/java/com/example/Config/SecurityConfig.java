@@ -27,7 +27,9 @@ public class SecurityConfig {
 						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/login").permitAll()
 						.anyRequest().authenticated())
-				.csrf().disable();
+				.csrf().disable()
+				.logout(logout -> logout
+						.logoutSuccessUrl("/login"));
 
 		return http.build();
 	}
