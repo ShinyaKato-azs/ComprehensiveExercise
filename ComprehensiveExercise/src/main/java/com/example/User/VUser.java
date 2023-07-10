@@ -11,7 +11,7 @@ import lombok.Data;
 @Data
 @Component
 @Table(name = "v_user")
-public class User {
+public class VUser {
 	@Id
 	private String userId;
 	private String password;

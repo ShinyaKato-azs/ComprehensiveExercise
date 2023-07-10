@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Repository.UserRepository;
-import com.example.User.User;
+import com.example.User.VUser;
 import com.example.Vegetables.Form.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ public class SignupController {
 	private UserRepository repository;
 
 	@Autowired
-	private User signupUser;
+	private VUser signupUser;
 
 	@GetMapping("/signup")
 	public String getSignup(@ModelAttribute SignupForm form) {

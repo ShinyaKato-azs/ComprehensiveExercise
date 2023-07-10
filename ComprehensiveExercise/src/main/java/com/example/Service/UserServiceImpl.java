@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.Repository.UserRepository;
-import com.example.User.User;
+import com.example.User.VUser;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -14,7 +14,7 @@ public class UserServiceImpl implements UserService {
 
 	//ユーザー登録
 	@Override
-	public void signupUser(User signupUser) {
+	public void signupUser(VUser signupUser) {
 
 		repository.save(signupUser);
 
