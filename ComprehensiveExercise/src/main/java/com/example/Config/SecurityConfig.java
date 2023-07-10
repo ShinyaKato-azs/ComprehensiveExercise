@@ -12,11 +12,17 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http
-				.authorizeHttpRequests()
+		http.authorizeHttpRequests(auth -> auth
 				.requestMatchers("/signup").permitAll()
 				.requestMatchers("/login").permitAll()
-				.anyRequest().authenticated();
+				.anyRequest().authenticated())
+				.formLogin(login -> login
+						.loginProcessingUrl("login")
+						.loginPage("/login")
+						.failureUrl("/login?error")
+						.usernameParameter("userId")
+						.passwordParameter("password")
+						.defaultSuccessUrl("/vegetables/vegetable", true));
 
 		return http.build();
 	}
