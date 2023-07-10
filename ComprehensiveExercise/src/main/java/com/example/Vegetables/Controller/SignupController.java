@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Repository.UserRepository;
+import com.example.Service.UserService;
 import com.example.User.VUser;
 import com.example.Vegetables.Form.SignupForm;
 
@@ -23,6 +24,9 @@ public class SignupController {
 
 	@Autowired
 	private VUser signupUser;
+
+	@Autowired
+	private UserService userService;
 
 	@GetMapping("/signup")
 	public String getSignup(@ModelAttribute SignupForm form) {
@@ -40,7 +44,7 @@ public class SignupController {
 			return getSignup(form);
 
 		}
-		//登録処理
+		//フォームのコピー
 		signupUser.setUserId(form.getUserId());
 		signupUser.setPassword(form.getPassword());
 
@@ -49,7 +53,7 @@ public class SignupController {
 		log.info(form.toString());
 
 		//テーブルに登録
-		repository.save(signupUser);
+		userService.signupUser(signupUser);
 
 		return "redirect:/signup";
 	}
