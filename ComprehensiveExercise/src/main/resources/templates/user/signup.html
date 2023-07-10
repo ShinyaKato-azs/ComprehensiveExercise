@@ -8,7 +8,7 @@
 	<div class="contents" style="padding-left:40%;">
 		<h2>新規登録</h2>
 		<form th:action="@{/signup}" method="post" th:object="${signupForm}">
-			<p>ユーザー名</p>
+			<p>ユーザーID</p>
 			<input type="text" name="userId" th:field="*{userId}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{userId}"></div>
@@ -23,7 +23,8 @@
 			<br>
 			<button type="submit">登録</button>		
 			<br>
-			<p>ログインはこちら</p>
+			<br>
+			<a th:href="@{/login}">ログインはこちら</a>
 			
 		</form>
 	</div>
