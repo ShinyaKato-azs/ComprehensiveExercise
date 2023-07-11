@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.Repository.UserRepository;
 import com.example.Service.UserService;
 import com.example.User.VUser;
 import com.example.Vegetables.Form.SignupForm;
@@ -19,11 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SignupController {
 
-	@Autowired
-	private UserRepository repository;
+	//	@Autowired
+	//	private UserRepository repository;
 
 	@Autowired
-	private VUser signupUser;
+	private VUser user;
 
 	@Autowired
 	private UserService userService;
@@ -45,15 +44,15 @@ public class SignupController {
 
 		}
 		//フォームのコピー
-		signupUser.setUserId(form.getUserId());
-		signupUser.setPassword(form.getPassword());
+		user.setUserId(form.getUserId());
+		user.setPassword(form.getPassword());
 
 		//ログ出力して確認
-		log.info(signupUser.toString());
+		log.info(user.toString());
 		log.info(form.toString());
 
 		//テーブルに登録
-		userService.signupUser(signupUser);
+		userService.signupUser(user);
 
 		return "redirect:/signup";
 	}

@@ -24,7 +24,7 @@
 		</div>
 		<div class="forms" style="float:left">
 			<h2>名前の変更</h2>
-			<form th:action="@{'/detail/update/'+${detailForm.id}}" method="POST" th:object="${detailForm}">
+			<form th:action="@{'/detail/'+${detailForm.id}+'/update'}" method="POST" th:object="${detailForm}">
 			   <input type="hidden" name="id" th:field="*{id}">
 			   <input type="text" name="name" th:field="*{name}"
 			   th:errorclass="is-invaid"/input>
@@ -35,7 +35,7 @@
 			   <input type="submit" value="送信" /input>
 		   </form>
 		   <h2>商品の削除</h2>
-		   <form th:action="@{'/detail/delete/'+${detailForm.id}}" method="POST"
+		   <form th:action="@{'/detail/'+${detailForm.id}}+'/delete'" method="POST"
 		    th:object="${detailForm}" onsubmit="return deleteConfirm()">
 			   <input type="hidden" name="id" th:field="*{id}">
 			   <input type="hidden" name="name" th:field="*{name}">

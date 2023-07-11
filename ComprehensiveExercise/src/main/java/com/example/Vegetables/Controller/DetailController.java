@@ -37,7 +37,7 @@ public class DetailController {
 	}
 
 	//更新処理
-	@PostMapping("/detail/update/{itemId}")
+	@PostMapping("/detail/{itemId}/update")
 	public String updateItem(@ModelAttribute @Validated DetailForm form, BindingResult bindingResult,
 			@PathVariable("itemId") Integer itemId) {
 
@@ -62,7 +62,7 @@ public class DetailController {
 	}
 
 	//削除処理
-	@PostMapping("/detail/delete/{itemId}")
+	@PostMapping("/detail/{itemId}/delete")
 	public String delteItem(@ModelAttribute DetailForm form) {
 
 		//postが正しく機能しているかログで確認

@@ -7,18 +7,21 @@
 <body>
 	<div class="contents" style="padding-left:40%;">
 		<h2>新規登録</h2>
-		<form th:action="@{/signup}" method="post" th:object="${signupForm}">
+		<form th:action="@{/signup}" method="post" th:object="${signupForm}" onsubmit="return confirmPassword()">
 			<p>ユーザーID</p>
 			<input type="text" name="userId" th:field="*{userId}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{userId}"></div>
 	   		</font>
 			<br>
+			<p id="error_msg" style="color:red;"></p>
 			<p>パスワード</p>
-			<input type="text" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
+			<input type="text" id="password" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{password}"></div>
-	   		</font>
+		 	</font>
+	   		<p>パスワード再入力</p>
+			<input type="text" id="confirm_password" name="confirm_password">
 			<br>
 			<br>
 			<button type="submit">登録</button>		
@@ -27,5 +30,22 @@
 		</form>
 		<a th:href="@{/login}">ログインはこちら</a>
 	</div>
+	<script>
+		
+		function confirmPassword() {
+ 		 const password = document.getElementById('password').value;
+ 		 const confirmPassword = document.getElementById('confirm_password').value;
+         const errorMsg = document.getElementById('error_msg');
+
+            if (password == confirmPassword) {
+                errorMsg.innerText = "";
+                return true;
+            } else {
+                errorMsg.innerText = "パスワードが一致しません";
+                return false;
+            }
+        }
+		
+	</script>
 </body>
 </html>

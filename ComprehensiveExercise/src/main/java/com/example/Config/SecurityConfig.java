@@ -15,7 +15,7 @@ public class SecurityConfig {
 	//	private UserDetailsService userDetailsService;
 
 	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+	SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http.formLogin(login -> login
 				.loginProcessingUrl("/login")
 				.loginPage("/login")
