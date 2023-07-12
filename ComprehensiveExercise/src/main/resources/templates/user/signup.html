@@ -11,7 +11,7 @@
 			<p>ユーザーメールアドレス</p>
 			<input type="text" name="userMail" th:field="*{userMail}" th:errorclass="is-invaid"/>
 			<font color="red">
-		 	  <div th:errors="*{userId}"></div>
+		 	  <div th:errors="*{userMail}"></div>
 	   		</font>
 			<br>
 			<p id="error_msg" style="color:red;"></p>
@@ -22,8 +22,17 @@
 		 	</font>
 	   		<p>パスワード再入力</p>
 			<input type="text" id="confirm_password" name="confirm_password">
-			<br>
-			<br>
+			<p>ユーザー名</p>
+			<input type="text" name="userName" th:field="*{userName}" th:errorclass="is-invaid">
+			<font color="red">
+		 	  <div th:errors="*{userName}"></div>
+		 	</font>
+		 	<br>
+		 	<br>
+		 	<input type="radio" name="userType" value="ROLE_FARMER" th:field="*{authority}">農家
+		 	<input type="radio" name="userType" value="ROLE_GENERAL"th:field="*{authority}">一般ユーザー
+		 	<br>
+			<br> 
 			<button type="submit">登録</button>		
 			<br>
 			<br>			
