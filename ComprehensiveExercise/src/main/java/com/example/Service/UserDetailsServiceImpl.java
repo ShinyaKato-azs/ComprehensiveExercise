@@ -32,7 +32,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		}
 
 		//権限list作成
-		GrantedAuthority authority = new SimpleGrantedAuthority("ROLE_ADMIN");
+		GrantedAuthority authority = new SimpleGrantedAuthority(loginUser.getAuthority());
 		List<GrantedAuthority> authorities = new ArrayList<>();
 		authorities.add(authority);
 
