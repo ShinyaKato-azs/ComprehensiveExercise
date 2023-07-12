@@ -44,7 +44,7 @@ public class SignupController {
 
 		}
 		//フォームのコピー
-		user.setUserId(form.getUserId());
+		user.setUserMail(form.getUserMail());
 		user.setPassword(form.getPassword());
 
 		//ログ出力して確認

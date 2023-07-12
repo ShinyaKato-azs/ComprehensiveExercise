@@ -8,6 +8,6 @@ public interface UserService {
 	public void signupUser(VUser signupUser);
 
 	//ユーザー取得
-	public VUser getLoginUser(String userId);
+	public VUser getLoginUser(String userMail);
 
 }

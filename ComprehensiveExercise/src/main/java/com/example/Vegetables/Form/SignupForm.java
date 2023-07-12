@@ -10,12 +10,15 @@ import lombok.Data;
 @Data
 public class SignupForm {
 
+	private Integer userId;
 	@NotBlank
 	@Email
-	private String userId;
+	private String userMail;
 	@NotBlank
 	@Length(min = 4, max = 100)
 	@Pattern(regexp = "^[a-zA-Z0-9]+$")
 	private String password;
+	private String userName;
+	private String authority;
 
 }

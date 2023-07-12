@@ -31,9 +31,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public VUser getLoginUser(String userId) {
+	public VUser getLoginUser(String userMail) {
 
-		Optional<VUser> option = repository.findById(userId);
+		Optional<VUser> option = repository.findByUserMail(userMail);
 		VUser user = option.orElse(null);
 		return user;
 

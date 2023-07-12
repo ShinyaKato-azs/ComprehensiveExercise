@@ -20,12 +20,13 @@ public class SecurityConfig {
 				.loginProcessingUrl("/login")
 				.loginPage("/login")
 				.failureUrl("/login?error")
-				.usernameParameter("userId")
+				.usernameParameter("userMail")
 				.passwordParameter("password")
 				.defaultSuccessUrl("/", true))
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/login").permitAll()
+						.requestMatchers("/input").hasAnyAuthority("ROLE_ADMIN", "ROLE_FARMER")
 						.anyRequest().authenticated())
 				.csrf().disable()
 				.logout(logout -> logout
