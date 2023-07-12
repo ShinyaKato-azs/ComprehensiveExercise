@@ -29,13 +29,16 @@
 		 	</font>
 		 	<br>
 		 	<br>
-		 	<input type="radio" name="userType" value="ROLE_FARMER" th:field="*{authority}">農家
-		 	<input type="radio" name="userType" value="ROLE_GENERAL"th:field="*{authority}">一般ユーザー
+		 	<input type="radio" name="userType" value="ROLE_FARMER" th:field="*{authority}" th:errorclass="is-invaid">農家
+		 	<input type="radio" name="userType" value="ROLE_GENERAL"th:field="*{authority}" th:errorclass="is-invaid">一般ユーザー
+		 	<font color="red">
+		 	  <div th:errors="*{authority}"></div>
+		 	</font>
 		 	<br>
-			<br> 
-			<button type="submit">登録</button>		
-			<br>
-			<br>			
+		 	<br> 
+		 	<button type="submit">登録</button>		
+		 	<br>
+		 	<br>			
 		</form>
 		<a th:href="@{/login}">ログインはこちら</a>
 	</div>

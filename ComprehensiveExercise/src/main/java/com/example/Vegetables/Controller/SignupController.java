@@ -44,17 +44,21 @@ public class SignupController {
 
 		}
 		//フォームのコピー
+		//IdはDB側で自動採番されるため、nullで設定する
+		user.setUserId(null);
 		user.setUserMail(form.getUserMail());
 		user.setPassword(form.getPassword());
+		user.setUserName(form.getUserName());
+		user.setAuthority(form.getAuthority());
 
 		//ログ出力して確認
-		log.info(user.toString());
-		log.info(form.toString());
+		log.info("エンティティクラスの中身:" + user.toString());
+		log.info("フォームの中身:" + form.toString());
 
 		//テーブルに登録
 		userService.signupUser(user);
 
-		return "redirect:/signup";
+		return "redirect:/login";
 	}
 
 }
