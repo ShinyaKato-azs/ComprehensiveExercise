@@ -12,5 +12,7 @@ public class DetailForm {
 	@NotBlank
 	@Size(min = 0, max = 4)
 	private String name;
+	private Integer price;
+	private Integer farmerId;
 
 }

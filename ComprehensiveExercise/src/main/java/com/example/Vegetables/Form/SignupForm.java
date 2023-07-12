@@ -18,7 +18,9 @@ public class SignupForm {
 	@Length(min = 4, max = 100)
 	@Pattern(regexp = "^[a-zA-Z0-9]+$")
 	private String password;
+	@NotBlank
 	private String userName;
+	@NotBlank
 	private String authority;
 
 }

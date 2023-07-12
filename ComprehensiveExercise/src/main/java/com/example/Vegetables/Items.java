@@ -16,5 +16,7 @@ public class Items {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String name;
+	private Integer price;
+	private Integer farmerId;
 
 }
