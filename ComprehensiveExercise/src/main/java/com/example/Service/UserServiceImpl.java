@@ -40,4 +40,25 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	//主キー（＝商品テーブルの農家ID）でユーザー情報を取得する
+	@Override
+	public VUser getUserById(Integer userId) {
+
+		String stringUserId = userId.toString();
+		Optional<VUser> option = repository.findById(stringUserId);
+		VUser user = option.orElse(null);
+		return user;
+
+	}
+
+	//主キー（＝商品テーブルの農家ID）でユーザー名を取得する
+	@Override
+	public String getUserNameById(Integer userId) {
+
+		VUser user = getUserById(userId);
+		String userName = user.getUserName();
+
+		return userName;
+	}
+
 }
