@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
 
 	}
 
+	//ログインを試みている・またはログイン中のユーザーの取得
 	@Override
 	public VUser getLoginUser(String userMail) {
 
@@ -38,4 +39,5 @@ public class UserServiceImpl implements UserService {
 		return user;
 
 	}
+
 }

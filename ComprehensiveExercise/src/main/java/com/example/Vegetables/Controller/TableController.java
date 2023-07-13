@@ -3,6 +3,8 @@ package com.example.Vegetables.Controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Service.ItemService;
+import com.example.Service.UserService;
+import com.example.User.VUser;
 //import com.example.Service.MakeArray;
 import com.example.Vegetables.Items;
 import com.example.Vegetables.Form.AddForm;
@@ -28,11 +32,22 @@ public class TableController {
 	@Autowired
 	private ItemService itemService;
 
+	@Autowired
+	private UserService userService;
+
 	@GetMapping("/")
-	public String getVegetables(Model model, @ModelAttribute AddForm form) {
+	public String getVegetables(Model model, @ModelAttribute AddForm form,
+			@AuthenticationPrincipal UserDetails userDetails) {
 
 		//		List<Items> items = applicationService.makeVegetableArray();
 		//		model.addAttribute("Items", items);
+
+		//ログイン情報からログイン中のユーザーを取得
+		log.info("ログイン情報の中身:" + userDetails.toString());
+		String loginUserMail = userDetails.getUsername();
+		VUser loginUser = userService.getLoginUser(loginUserMail);
+
+		model.addAttribute("loginUser", loginUser);
 
 		List<Items> dbItems = itemService.getItems();
 		log.info(dbItems.toString());

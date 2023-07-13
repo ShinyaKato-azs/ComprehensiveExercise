@@ -6,6 +6,7 @@
 </head>
 <body>
    <div style="padding-left:29%;">
+	   <p th:text="'ログイン中のユーザー：'+${loginUser.userName}"></p>
 	   <a th:href="@{/input}" style="padding-right:10px;">登録はこちら</a>
 	   <a th:href="@{/logout}" >ログアウト</a>
    </div>
