@@ -39,20 +39,23 @@ public class TableController {
 	public String getVegetables(Model model, @ModelAttribute AddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
 
+		/** 廃止した機能 */
 		//		List<Items> items = applicationService.makeVegetableArray();
 		//		model.addAttribute("Items", items);
 
-		//ログイン情報からログイン中のユーザーを取得
-		log.info("ログイン情報の中身:" + userDetails.toString());
+		/** ログイン情報からログイン中のユーザーを取得 */
+		//【確認用】
+		//log.info("ログイン情報の中身:" + userDetails.toString());
 		String loginUserMail = userDetails.getUsername();
 		VUser loginUser = userService.getLoginUser(loginUserMail);
-
 		model.addAttribute("loginUser", loginUser);
 
+		/** 全てのレコードを取得してthymeleafに渡す */
 		List<Items> dbItems = itemService.getItems();
 		log.info(dbItems.toString());
-		//モデルに登録してthymeleafに渡す
 		model.addAttribute("dbItems", dbItems);
+
+		log.info(userService.getUserById(4).toString());
 
 		return "vegetables/vegetables";
 
