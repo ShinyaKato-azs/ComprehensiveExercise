@@ -86,8 +86,10 @@ public class TableController {
 		//modelMapperを使用してコピーしても可
 		Items item = new Items();
 
-		//DB側で連番で振られるため、nullでセット（いらないかも）
+		//DB側で連番で振られるため、nullでセット
 		item.setId(null);
+		item.setPrice(form.getPrice());
+		item.setFarmerId(form.getFarmerId());
 
 		String formName = form.getName();
 		//最後の文字をカットして、itemクラスのフィールドとして登録
