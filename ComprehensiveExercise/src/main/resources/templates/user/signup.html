@@ -15,13 +15,16 @@
 	   		</font>
 			<br>
 			<p id="error_msg" style="color:red;"></p>
-			<p>パスワード</p>
-			<input type="text" id="password" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
+			<label for="password">パスワード:</label>
+			<button type="button" id="hideButton"  onclick="pushHideButton()"
+			 style="font-size:1px;padding:1px;">パスワードの「見える化」</button>
+			 <br>
+			<input type="password" id="password" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{password}"></div>
 		 	</font>
 	   		<p>パスワード再入力</p>
-			<input type="text" id="confirm_password" name="confirm_password">
+			<input type="password" id="confirm_password" name="confirm_password">
 			<p>ユーザー名</p>
 			<input type="text" name="userName" th:field="*{userName}" th:errorclass="is-invaid">
 			<font color="red">
@@ -57,6 +60,21 @@
                 return false;
             }
         }
+        
+      function pushHideButton() {
+        var txtPass = document.getElementById("password");
+        var txtConfirmPass = document.getElementById("confirm_password")
+        var hideButton = document.getElementById("hideButton");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          txtConfirmPass.type="password"
+          hideButton.innerHTML="パスワードの「見える」化"
+        } else {
+          txtPass.type = "text";
+          txtConfirmPass.type="text"
+          hideButton.innerHTML="パスワードの「見えない」化"
+        }
+      }
 		
 	</script>
 </body>
