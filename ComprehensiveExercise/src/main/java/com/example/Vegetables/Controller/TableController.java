@@ -55,8 +55,6 @@ public class TableController {
 		log.info(dbItems.toString());
 		model.addAttribute("dbItems", dbItems);
 
-		log.info(userService.getUserById(4).toString());
-
 		return "vegetables/vegetables";
 
 	}
