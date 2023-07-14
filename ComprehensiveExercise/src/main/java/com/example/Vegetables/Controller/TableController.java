@@ -74,6 +74,9 @@ public class TableController {
 		VUser loginUser = userService.getLoginUser(loginUserMail);
 		model.addAttribute("loginUser", loginUser);
 
+		/**AddFormのfarmerIdにログイン中のユーザーのIDをセット*/
+		form.setFarmerId(loginUser.getUserId());
+
 		return "vegetables/vegetablesInput";
 
 	}
