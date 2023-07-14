@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.example.Vegetables.ItemAndUserJoinedWithFarmerId;
+import com.example.Vegetables.ItemAndUsername;
 
-public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUserJoinedWithFarmerId, Integer> {
+public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUsername, Integer> {
 
 	@Query(value = "select "
 			+ "    user_name as farmer_name "
@@ -19,6 +19,6 @@ public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUserJoine
 			+ "    v_user u "
 			+ "    INNER JOIN items as i "
 			+ "        ON u.user_id = i.farmer_id; ", nativeQuery = true)
-	public List<ItemAndUserJoinedWithFarmerId> findItems();
+	public List<ItemAndUsername> findItems();
 
 }

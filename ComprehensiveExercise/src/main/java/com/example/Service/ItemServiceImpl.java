@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.Repository.ItemAndUsenameRepository;
 import com.example.Repository.ItemsRepository;
+import com.example.Vegetables.ItemAndUsername;
 import com.example.Vegetables.Items;
 
 @Service
@@ -16,6 +18,8 @@ public class ItemServiceImpl implements ItemService {
 
 	@Autowired
 	private ItemsRepository repository;
+	@Autowired
+	private ItemAndUsenameRepository itemAndUsernameRepository;
 
 	//一覧取得機能
 	@Override
@@ -81,6 +85,18 @@ public class ItemServiceImpl implements ItemService {
 	public void deleteItemOne(Integer itemId) {
 
 		repository.deleteById(itemId);
+
+	}
+
+	//農家名とともに商品一覧を取得
+	@Override
+	public List<ItemAndUsername> getItemsWithUsername() {
+
+		List<ItemAndUsername> SortItems = itemAndUsernameRepository.findItems();
+
+		Collections.sort(SortItems, (x, y) -> x.getItemId() - y.getItemId());
+
+		return SortItems;
 
 	}
 

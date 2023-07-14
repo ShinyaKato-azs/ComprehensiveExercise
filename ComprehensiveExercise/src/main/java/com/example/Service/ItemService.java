@@ -2,6 +2,7 @@ package com.example.Service;
 
 import java.util.List;
 
+import com.example.Vegetables.ItemAndUsername;
 import com.example.Vegetables.Items;
 
 public interface ItemService {
@@ -23,5 +24,8 @@ public interface ItemService {
 
 	//商品削除
 	public void deleteItemOne(Integer itemId);
+
+	//農家名とともに商品一覧を取得
+	public List<ItemAndUsername> getItemsWithUsername();
 
 }

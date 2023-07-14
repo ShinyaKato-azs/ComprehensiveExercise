@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.Repository.ItemAndUsenameRepository;
 import com.example.Service.ItemService;
 import com.example.Service.UserService;
 import com.example.User.VUser;
+import com.example.Vegetables.ItemAndUsername;
 //import com.example.Service.MakeArray;
 import com.example.Vegetables.Items;
 import com.example.Vegetables.Form.AddForm;
@@ -35,9 +35,6 @@ public class TableController {
 
 	@Autowired
 	private UserService userService;
-
-	@Autowired
-	private ItemAndUsenameRepository itemAndUsernameRepository;
 
 	@GetMapping("/")
 	public String getVegetables(Model model, @ModelAttribute AddForm form,
@@ -59,8 +56,10 @@ public class TableController {
 		log.info(dbItems.toString());
 		model.addAttribute("dbItems", dbItems);
 
-		/**メソッドの挙動テスト*/
-		itemAndUsernameRepository.findItems();
+		/**結合したテーブルから商品情報と農家名を取得*/
+		List<ItemAndUsername> ItemAndUsername = itemService.getItemsWithUsername();
+		log.info(ItemAndUsername.toString());
+		model.addAttribute("ItemAndUsername", ItemAndUsername);
 
 		return "vegetables/vegetables";
 

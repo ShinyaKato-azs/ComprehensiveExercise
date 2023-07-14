@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class ItemAndUserJoinedWithFarmerId {
+public class ItemAndUsername {
 
 	@Id
 	@Column(name = "item_id")
