@@ -19,9 +19,11 @@
 			<br>
 			<input type="text" name="userMail"/>
 			<br>
-			<label for="password">パスワード</label>
-			<br>
-			<input type="text" name="password"/>
+			<label for="password">パスワード: </label>
+			<button type="button" id="hideButton"  onclick="pushHideButton()"
+			 style="font-size:1px;padding:1px;">パスワードの「見える化」</button>
+			 <br>
+			<input id="password" type="password" name="password"/>
 			<br>
 			<br>
 			<button type="submit">ログイン</button>		
@@ -30,5 +32,18 @@
 		</form>
 		<a th:href="@{/signup}">新規登録はこちら</a>
 	</div>
+	<script>
+      function pushHideButton() {
+        var txtPass = document.getElementById("password");
+        var hideButton = document.getElementById("hideButton");
+        if (txtPass.type === "text") {
+          txtPass.type = "password";
+          hideButton.innerHTML="パスワードの「見える」化"
+        } else {
+          txtPass.type = "text";
+          hideButton.innerHTML="パスワードの「見えない」化"
+        }
+      }
+    </script>
 </body>
 </htmlxmlns:th="http://www.thymeleaf.org">
