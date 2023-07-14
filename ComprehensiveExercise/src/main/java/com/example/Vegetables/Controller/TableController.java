@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.Repository.ItemAndUsenameRepository;
 import com.example.Service.ItemService;
 import com.example.Service.UserService;
 import com.example.User.VUser;
@@ -35,6 +36,9 @@ public class TableController {
 	@Autowired
 	private UserService userService;
 
+	@Autowired
+	private ItemAndUsenameRepository itemAndUsernameRepository;
+
 	@GetMapping("/")
 	public String getVegetables(Model model, @ModelAttribute AddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
@@ -54,6 +58,9 @@ public class TableController {
 		List<Items> dbItems = itemService.getItems();
 		log.info(dbItems.toString());
 		model.addAttribute("dbItems", dbItems);
+
+		/**メソッドの挙動テスト*/
+		itemAndUsernameRepository.findItems();
 
 		return "vegetables/vegetables";
 

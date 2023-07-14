@@ -18,5 +18,4 @@ public class Items {
 	private String name;
 	private Integer price;
 	private Integer farmerId;
-
 }
