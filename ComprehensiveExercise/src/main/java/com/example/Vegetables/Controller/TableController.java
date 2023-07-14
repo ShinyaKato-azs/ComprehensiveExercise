@@ -59,7 +59,7 @@ public class TableController {
 		/**結合したテーブルから商品情報と農家名を取得*/
 		List<ItemAndUsername> ItemAndUsername = itemService.getItemsWithUsername();
 		log.info(ItemAndUsername.toString());
-		model.addAttribute("ItemAndUsername", ItemAndUsername);
+		model.addAttribute("itemAndUsername", ItemAndUsername);
 
 		return "vegetables/vegetables";
 
