@@ -5,6 +5,7 @@
   <title>Vegetables</title>
 </head>
 <body>
+	<p th:text="'ログイン中のユーザー：'+${loginUser.userName}"></p>
    <form th:action="@{/add}" method="POST" th:object="${addForm}">
 	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"
 	   th:errorclass="is-invaid"/input>

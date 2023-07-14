@@ -66,18 +66,25 @@ public class TableController {
 	}
 
 	@GetMapping("/input")
-	public String getVegetablesInput(@ModelAttribute AddForm form) {
+	public String getVegetablesInput(@ModelAttribute AddForm form, Model model,
+			@AuthenticationPrincipal UserDetails userDetails) {
+
+		/** ログイン情報からログイン中のユーザーを取得 */
+		String loginUserMail = userDetails.getUsername();
+		VUser loginUser = userService.getLoginUser(loginUserMail);
+		model.addAttribute("loginUser", loginUser);
 
 		return "vegetables/vegetablesInput";
 
 	}
 
 	@PostMapping("/add")
-	public String postVegetables(@ModelAttribute @Validated AddForm form, BindingResult bindingResult) {
+	public String postVegetables(@ModelAttribute @Validated AddForm form, BindingResult bindingResult,
+			Model model, @AuthenticationPrincipal UserDetails userDetails) {
 
 		if (bindingResult.hasErrors()) {
 
-			return getVegetablesInput(form);
+			return getVegetablesInput(form, model, userDetails);
 
 		}
 		log.info(form.toString());
