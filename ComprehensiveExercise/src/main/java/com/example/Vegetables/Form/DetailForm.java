@@ -14,5 +14,6 @@ public class DetailForm {
 	private String name;
 	private Integer price;
 	private Integer farmerId;
+	private String farmerName;
 
 }

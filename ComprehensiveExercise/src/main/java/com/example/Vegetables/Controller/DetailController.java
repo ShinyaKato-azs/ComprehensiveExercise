@@ -29,12 +29,12 @@ public class DetailController {
 
 		//主キーで探して商品を1件返す
 		ItemAndUsername item = itemService.getItemOneWithUsername(itemId);
-		log.info(item.toString());
 		//Formクラスにitemをコピー
 		detailForm.setId(itemId);
 		detailForm.setName(item.getName());
 		detailForm.setPrice(item.getPrice());
 		detailForm.setFarmerId(item.getFarmerId());
+		detailForm.setFarmerName(item.getFarmerName());
 
 		return "vegetables/vegetablesDetail";
 
