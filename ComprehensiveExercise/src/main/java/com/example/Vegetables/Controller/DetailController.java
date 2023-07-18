@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Service.ItemService;
+import com.example.Vegetables.ItemAndUsername;
 import com.example.Vegetables.Items;
 import com.example.Vegetables.Form.DetailForm;
 
@@ -27,7 +28,8 @@ public class DetailController {
 	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute DetailForm detailForm) {
 
 		//主キーで探して商品を1件返す
-		Items item = itemService.getItemOne(itemId);
+		ItemAndUsername item = itemService.getItemOneWithUsername(itemId);
+		log.info(item.toString());
 		//Formクラスにitemをコピー
 		detailForm.setId(itemId);
 		detailForm.setName(item.getName());
