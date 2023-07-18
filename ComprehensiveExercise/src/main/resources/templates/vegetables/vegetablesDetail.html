@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 <head>
   <meta charset="UTF-8"></meta>
   <title>VegetableDetail</title>
@@ -22,8 +23,9 @@
 		</table>
 		 <a th:href="@{/}">一覧に戻る</a>
 		</div>
-		<div class="forms" style="float:left">
-			<h2>名前の変更</h2>
+		<!--更新フォームと削除ボタンは農家権限意外に見えないように設定-->
+		<div class="forms" style="float:left" sec:authorize="hasRole('ROLE_FARMER')">
+			<h2>名前と価格の変更</h2>
 			<form th:action="@{'/detail/'+${detailForm.id}+'/update'}" method="POST" th:object="${detailForm}">
 			   <input type="hidden" name="id" th:field="*{id}">
 			   <input type="text" name="name" th:field="*{name}"
@@ -31,6 +33,8 @@
 			   <font color="red">
 				   <div th:errors="*{name}"></div>
 			   </font>
+			   <br>
+			   <input type="text" name="price" th:field="*{price}" /input>
 			   <br>
 			   <input type="submit" value="送信" /input>
 		   </form>

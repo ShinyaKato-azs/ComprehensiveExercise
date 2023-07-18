@@ -53,8 +53,9 @@ public class DetailController {
 
 		//idが一致する商品を持ってくる
 		Items updateItem = itemService.getItemOne(itemId);
-		//名前フィールドだけ変更
+		//名前と価格フィールドだけ変更
 		updateItem.setName(form.getName());
+		updateItem.setPrice(form.getPrice());
 		log.info(updateItem.toString());
 
 		//更新
