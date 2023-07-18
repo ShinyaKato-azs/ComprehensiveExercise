@@ -31,6 +31,8 @@ public class DetailController {
 		//Formクラスにitemをコピー
 		detailForm.setId(itemId);
 		detailForm.setName(item.getName());
+		detailForm.setPrice(item.getPrice());
+		detailForm.setFarmerId(item.getFarmerId());
 
 		return "vegetables/vegetablesDetail";
 
