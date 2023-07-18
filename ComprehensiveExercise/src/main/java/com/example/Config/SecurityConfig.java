@@ -26,7 +26,7 @@ public class SecurityConfig {
 				.authorizeHttpRequests(auth -> auth
 						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/login").permitAll()
-						.requestMatchers("/css/**").permitAll()
+						.requestMatchers("/css/**", "/webjars/**").permitAll()
 						.requestMatchers("/input").hasAnyAuthority("ROLE_ADMIN", "ROLE_FARMER")
 						.anyRequest().authenticated())
 				.csrf().disable()

@@ -1,14 +1,16 @@
 @charset "UTF-8";
 
-.contents{
-	
-	padding-left:40%;
-	
+#contents{
+	width:30%;
+	margin-top:5%;
+	margin-bottom:5%;
+	padding-top:2%;
+	padding-bottom:4%
 }
 
-.passwordButton{
+#hideButton{
 	
 	font-size:1px;
-	padding:1px;
+	padding:3px;
 	
 }

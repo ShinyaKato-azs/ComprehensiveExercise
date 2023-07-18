@@ -2,23 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8"></meta>
+  <link rel="stylesheet" th:href="@{/css/contents/vegetablesInput.css}">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
   <title>Vegetables</title>
 </head>
 <body>
-	<p th:text="'ログイン中のユーザー：'+${loginUser.userName}"></p>
-   <form th:action="@{/add}" method="POST" th:object="${addForm}">
-	   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"
-	   th:errorclass="is-invaid"/input>
-	   <font color="red">
-		   <div th:errors="*{name}"></div>
-	   </font>
+	<div id="contents" class="container bg-light text-center">
+		<p th:text="'ログイン中のユーザー：'+${loginUser.userName}"></p>
+	   <form th:action="@{/add}" method="POST" th:object="${addForm}">
+		   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"
+		   th:errorclass="is-invaid"/input>
+		   <font color="red">
+			   <div th:errors="*{name}"></div>
+		   </font>
+		   <br>
+		   <br>
+		   <input type="text" th:field="*{price}" placeholder="価格を入力" >
+		   <br>
+		   <input type="hidden" th:field="*{farmerId}">
+		   <br>
+		   <input type="submit" value="送信" /input>
+	   </form>
 	   <br>
-	   <input type="text" th:field="*{price}" placeholder="価格を入力" >
-	   <br>
-	   <input type="hidden" th:field="*{farmerId}">
-	   <br>
-	   <input type="submit" value="送信" /input>
-   </form>
-   <a th:href="@{/}">一覧に戻る</a>
+	   <a th:href="@{/}">一覧に戻る</a>
+   </div>
 </body>
 </html>

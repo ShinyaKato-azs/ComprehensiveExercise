@@ -3,13 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/signup.css}">
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 <title>signup</title>
 </head>
 <body>
-	<div class="contents">
+	<div id="contents" class="container bg-light text-center">
 		<h2>新規登録</h2>
-		<form th:action="@{/signup}" method="post" th:object="${signupForm}" onsubmit="return confirmPassword()">
-			<p>ユーザーメールアドレス</p>
+		<form th:action="@{/signup}" method="post" th:object="${signupForm}"
+		 onsubmit="return confirmPassword()" class="pt-4">
+			<label for="userMail">ユーザーメールアドレス</label>
+			<br>
 			<input type="text" name="userMail" th:field="*{userMail}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{userMail}"></div>
@@ -17,16 +20,21 @@
 			<br>
 			<p id="error_msg" style="color:red;"></p>
 			<label for="password">パスワード:</label>
-			<button class="passwordButton" type="button" id="hideButton"  onclick="pushHideButton()"
-			 >パスワードの「見える化」</button>
+			<button class="btn  btn-secondary mb-1" type="button" id="hideButton"  onclick="pushHideButton()">
+				パスワードの「見える化」
+			</button>
 			 <br>
 			<input type="password" id="password" name="password" th:field="*{password}" th:errorclass="is-invaid"/>
 			<font color="red">
 		 	  <div th:errors="*{password}"></div>
 		 	</font>
-	   		<p>パスワード再入力</p>
+		 	<br>
+	   		<label for="confirm_password" class="pt-2">パスワード再入力</label>
+	   		<br>
 			<input type="password" id="confirm_password" name="confirm_password">
-			<p>ユーザー名</p>
+			<br>
+			<label for="userName" class="pt-2">ユーザー名</label>
+			<br>
 			<input type="text" name="userName" th:field="*{userName}" th:errorclass="is-invaid">
 			<font color="red">
 		 	  <div th:errors="*{userName}"></div>
@@ -40,7 +48,7 @@
 		 	</font>
 		 	<br>
 		 	<br> 
-		 	<button type="submit">登録</button>		
+		 	<button type="submit" class="btn btn-primary">登録</button>		
 		 	<br>
 		 	<br>			
 		</form>
