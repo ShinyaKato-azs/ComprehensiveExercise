@@ -14,11 +14,15 @@
 				<th>商品ID</th>
 				<th>商品名</th>
 				<th>商品参考画像</th>
+				<th>農家名</th>
+				<th>価格</th>
 			</tr>
 			<tr>
-				<td th:text="*{id}"></td>
+				<td th:text="*{id}" style="text-align:center;"></td>
 				<td th:text="*{name}"></td>
 				<td><img th:src="@{/{items}.png(items=*{id})}" width="300" height="200"></td>
+				<td><a th:href="@{/}" th:text=*{farmerName}></a></td>
+				<td th:text="*{price}+円"></td>
 			</tr>
 		</table>
 		 <a th:href="@{/}">一覧に戻る</a>
