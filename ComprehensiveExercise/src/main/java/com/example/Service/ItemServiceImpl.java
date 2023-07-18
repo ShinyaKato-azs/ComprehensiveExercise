@@ -72,6 +72,16 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
+	//商品＋農家名取得（1件）
+	@Override
+	public ItemAndUsername getItemOneWithUsername(Integer ItemId) {
+
+		ItemAndUsername itemAndUsername = itemAndUsernameRepository.getOneItem(ItemId);
+
+		return itemAndUsername;
+
+	}
+
 	//商品更新
 	@Override
 	public void updateItemOne(Items item) {

@@ -19,6 +19,9 @@ public interface ItemService {
 	//商品取得（1件）
 	public Items getItemOne(Integer itemId);
 
+	//商品＋農家名取得（1件）
+	public ItemAndUsername getItemOneWithUsername(Integer ItemId);
+
 	//商品更新
 	public void updateItemOne(Items item);
 
