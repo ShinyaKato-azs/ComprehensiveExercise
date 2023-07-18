@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta charset="UTF-8">
-<title>login</title>
+  <meta charset="UTF-8"></meta>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <title>ログイン</title>
 </head>
 <body>
-	<div class="contents" style="padding-left:40%;">
+	<div class="contents">
 		<h2>ログイン</h2>
 		<form th:action="@{/login}" method="post">
 			<div th:if="${param.error}">
 				<p th:if="${session[SPRING_SECURITY_LAST_EXCEPTION] != null}"
 					th:text="${session[SPRING_SECURITY_LAST_EXCEPTION].message}"
-					style="color:red;">
+					class="session-error">
 					ログイン失敗
 				</p>
 			</div>
@@ -21,7 +22,9 @@
 			<br>
 			<label for="password">パスワード: </label>
 			<button type="button" id="hideButton"  onclick="pushHideButton()"
-			 style="font-size:1px;padding:1px;">パスワードの「見える化」</button>
+			 class="password-button">
+				パスワードの「見える化」
+			</button>
 			 <br>
 			<input id="password" type="password" name="password"/>
 			<br>
@@ -46,4 +49,4 @@
       }
     </script>
 </body>
-</htmlxmlns:th="http://www.thymeleaf.org">
+</html>
