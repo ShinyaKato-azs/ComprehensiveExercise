@@ -1,4 +1,4 @@
-package com.example.Service;
+package com.example.service;
 
 import java.util.Optional;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.Repository.UserRepository;
-import com.example.User.VUser;
+import com.example.repository.UserRepository;
+import com.example.user.VUser;
 
 @Service
 public class UserServiceImpl implements UserService {

@@ -1,4 +1,4 @@
-package com.example.User.Form;
+package com.example.user.form;
 
 import org.hibernate.validator.constraints.Length;
 

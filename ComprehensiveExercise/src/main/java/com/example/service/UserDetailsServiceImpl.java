@@ -1,4 +1,4 @@
-package com.example.Service;
+package com.example.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.example.User.VUser;
+import com.example.user.VUser;
 
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {

@@ -1,4 +1,4 @@
-package com.example.Vegetables.Controller;
+package com.example.items.controller;
 
 import java.util.List;
 
@@ -13,13 +13,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.Service.ItemService;
-import com.example.Service.UserService;
-import com.example.User.VUser;
-import com.example.Vegetables.ItemAndUsername;
-//import com.example.Service.MakeArray;
-import com.example.Vegetables.Items;
-import com.example.Vegetables.Form.AddForm;
+import com.example.items.form.AddForm;
+import com.example.items.ItemAndUsername;
+import com.example.items.Items;
+import com.example.service.ItemService;
+import com.example.service.UserService;
+import com.example.user.VUser;
 
 import lombok.extern.slf4j.Slf4j;
 

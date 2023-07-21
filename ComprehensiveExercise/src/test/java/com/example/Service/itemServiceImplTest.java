@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
-import com.example.Repository.ItemsRepository;
-import com.example.Vegetables.Items;
+import com.example.items.Items;
+import com.example.repository.ItemsRepository;
+import com.example.service.ItemServiceImpl;
 
 @SpringBootTest
 class itemServiceImplTest {

@@ -1,4 +1,4 @@
-package com.example.Vegetables.Form;
+package com.example.items.form;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;

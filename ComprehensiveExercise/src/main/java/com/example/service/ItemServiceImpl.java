@@ -1,4 +1,4 @@
-package com.example.Service;
+package com.example.service;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.Repository.ItemAndUsenameRepository;
-import com.example.Repository.ItemsRepository;
-import com.example.Vegetables.ItemAndUsername;
-import com.example.Vegetables.Items;
+import com.example.items.ItemAndUsername;
+import com.example.items.Items;
+import com.example.repository.ItemAndUsenameRepository;
+import com.example.repository.ItemsRepository;
 
 @Service
 public class ItemServiceImpl implements ItemService {

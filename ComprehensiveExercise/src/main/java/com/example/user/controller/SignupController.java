@@ -1,4 +1,4 @@
-package com.example.User.Controller;
+package com.example.user.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.Service.UserService;
-import com.example.User.VUser;
-import com.example.User.Form.SignupForm;
+import com.example.service.UserService;
+import com.example.user.VUser;
+import com.example.user.form.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;
 

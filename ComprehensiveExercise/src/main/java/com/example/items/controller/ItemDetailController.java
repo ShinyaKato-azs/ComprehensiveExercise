@@ -1,4 +1,4 @@
-package com.example.Vegetables.Controller;
+package com.example.items.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.Service.ItemService;
-import com.example.Vegetables.ItemAndUsername;
-import com.example.Vegetables.Items;
-import com.example.Vegetables.Form.DetailForm;
+import com.example.items.form.DetailForm;
+import com.example.items.ItemAndUsername;
+import com.example.items.Items;
+import com.example.service.ItemService;
 
 import lombok.extern.slf4j.Slf4j;
 

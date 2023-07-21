@@ -1,10 +1,10 @@
-package com.example.Service;
+package com.example.service;
 
 import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import com.example.Vegetables.Items;
+import com.example.items.Items;
 
 @Service
 public class MakeArray {

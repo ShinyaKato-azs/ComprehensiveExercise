@@ -1,9 +1,9 @@
-package com.example.Service;
+package com.example.service;
 
 import java.util.List;
 
-import com.example.Vegetables.ItemAndUsername;
-import com.example.Vegetables.Items;
+import com.example.items.ItemAndUsername;
+import com.example.items.Items;
 
 public interface ItemService {
 

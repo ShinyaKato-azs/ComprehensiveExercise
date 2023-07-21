@@ -1,6 +1,6 @@
-package com.example.Service;
+package com.example.service;
 
-import com.example.User.VUser;
+import com.example.user.VUser;
 
 public interface UserService {
 
