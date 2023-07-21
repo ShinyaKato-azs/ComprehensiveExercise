@@ -6,9 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.example.items.ItemAndUsername;
+import com.example.items.ItemList;
 
-public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUsername, Integer> {
+public interface ItemListRepository extends JpaRepository<ItemList, Integer> {
 
 	@Query(value = "select "
 			+ "    user_name as farmer_name "
@@ -20,7 +20,7 @@ public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUsername,
 			+ "    v_user u "
 			+ "    INNER JOIN items as i "
 			+ "        ON u.user_id = i.farmer_id; ", nativeQuery = true)
-	public List<ItemAndUsername> findItems();
+	public List<ItemList> findItems();
 
 	@Query(value = "select "
 			+ "    user_name as farmer_name "
@@ -34,6 +34,6 @@ public interface ItemAndUsenameRepository extends JpaRepository<ItemAndUsername,
 			+ "        ON u.user_id = i.farmer_id "
 			+ "where "
 			+ "    i.id = :itemId ; ", nativeQuery = true)
-	public ItemAndUsername getOneItem(@Param("itemId") Integer itemId);
+	public ItemList getOneItem(@Param("itemId") Integer itemId);
 
 }

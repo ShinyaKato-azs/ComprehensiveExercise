@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.items.ItemAndUsername;
+import com.example.items.ItemList;
 import com.example.items.Items;
-import com.example.repository.ItemAndUsenameRepository;
+import com.example.repository.ItemListRepository;
 import com.example.repository.ItemsRepository;
 
 @Service
@@ -19,7 +19,7 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemsRepository repository;
 	@Autowired
-	private ItemAndUsenameRepository itemAndUsernameRepository;
+	private ItemListRepository itemAndUsernameRepository;
 
 	//一覧取得機能
 	@Override
@@ -74,9 +74,9 @@ public class ItemServiceImpl implements ItemService {
 
 	//商品＋農家名取得（1件）
 	@Override
-	public ItemAndUsername getItemOneWithUsername(Integer ItemId) {
+	public ItemList getItemOneWithUsername(Integer ItemId) {
 
-		ItemAndUsername itemAndUsername = itemAndUsernameRepository.getOneItem(ItemId);
+		ItemList itemAndUsername = itemAndUsernameRepository.getOneItem(ItemId);
 
 		return itemAndUsername;
 
@@ -100,9 +100,9 @@ public class ItemServiceImpl implements ItemService {
 
 	//農家名とともに商品一覧を取得
 	@Override
-	public List<ItemAndUsername> getItemsWithUsername() {
+	public List<ItemList> getItemsWithUsername() {
 
-		List<ItemAndUsername> SortItems = itemAndUsernameRepository.findItems();
+		List<ItemList> SortItems = itemAndUsernameRepository.findItems();
 
 		Collections.sort(SortItems, (x, y) -> x.getItemId() - y.getItemId());
 

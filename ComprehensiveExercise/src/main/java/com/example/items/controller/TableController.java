@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.items.form.AddForm;
-import com.example.items.ItemAndUsername;
+import com.example.items.ItemList;
 import com.example.items.Items;
 import com.example.service.ItemService;
 import com.example.service.UserService;
@@ -56,7 +56,7 @@ public class TableController {
 		model.addAttribute("dbItems", dbItems);
 
 		/**結合したテーブルから商品情報と農家名を取得*/
-		List<ItemAndUsername> ItemAndUsername = itemService.getItemsWithUsername();
+		List<ItemList> ItemAndUsername = itemService.getItemsWithUsername();
 		log.info(ItemAndUsername.toString());
 		model.addAttribute("itemAndUsername", ItemAndUsername);
 

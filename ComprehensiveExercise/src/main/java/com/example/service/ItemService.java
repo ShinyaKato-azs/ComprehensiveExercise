@@ -2,7 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.items.ItemAndUsername;
+import com.example.items.ItemList;
 import com.example.items.Items;
 
 public interface ItemService {
@@ -20,7 +20,7 @@ public interface ItemService {
 	public Items getItemOne(Integer itemId);
 
 	//商品＋農家名取得（1件）
-	public ItemAndUsername getItemOneWithUsername(Integer ItemId);
+	public ItemList getItemOneWithUsername(Integer ItemId);
 
 	//商品更新
 	public void updateItemOne(Items item);
@@ -29,6 +29,6 @@ public interface ItemService {
 	public void deleteItemOne(Integer itemId);
 
 	//農家名とともに商品一覧を取得
-	public List<ItemAndUsername> getItemsWithUsername();
+	public List<ItemList> getItemsWithUsername();
 
 }
