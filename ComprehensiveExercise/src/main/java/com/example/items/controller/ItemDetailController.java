@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.items.form.DetailForm;
-import com.example.items.ItemList;
+import com.example.items.ItemDetail;
 import com.example.items.Items;
+import com.example.items.form.DetailForm;
 import com.example.service.ItemService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +28,7 @@ public class ItemDetailController {
 	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute DetailForm detailForm) {
 
 		//主キーで探して商品を1件返す
-		ItemList item = itemService.getItemOneWithUsername(itemId);
+		ItemDetail item = itemService.getItemOneWithUsername(itemId);
 		//Formクラスにitemをコピー
 		detailForm.setId(itemId);
 		detailForm.setName(item.getName());

@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.items.ItemDetail;
 import com.example.items.ItemList;
 import com.example.items.Items;
 
@@ -20,7 +21,7 @@ public interface ItemService {
 	public Items getItemOne(Integer itemId);
 
 	//商品＋農家名取得（1件）
-	public ItemList getItemOneWithUsername(Integer ItemId);
+	public ItemDetail getItemOneWithUsername(Integer ItemId);
 
 	//商品更新
 	public void updateItemOne(Items item);
