@@ -1,4 +1,4 @@
-package com.example.Vegetables.Controller;
+package com.example.User.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.Service.UserService;
 import com.example.User.VUser;
-import com.example.Vegetables.Form.SignupForm;
+import com.example.User.Form.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;
 
