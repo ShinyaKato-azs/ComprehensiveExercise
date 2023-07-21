@@ -60,7 +60,7 @@ public class TableController {
 		log.info(ItemAndUsername.toString());
 		model.addAttribute("itemAndUsername", ItemAndUsername);
 
-		return "vegetables/vegetables";
+		return "items/itemsList";
 
 	}
 
@@ -76,7 +76,7 @@ public class TableController {
 		/**AddFormのfarmerIdにログイン中のユーザーのIDをセット*/
 		form.setFarmerId(loginUser.getUserId());
 
-		return "vegetables/vegetablesInput";
+		return "items/itemsInput";
 
 	}
 

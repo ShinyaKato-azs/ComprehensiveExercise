@@ -36,7 +36,7 @@ public class ItemDetailController {
 		detailForm.setFarmerId(item.getFarmerId());
 		detailForm.setFarmerName(item.getFarmerName());
 
-		return "vegetables/vegetablesDetail";
+		return "items/itemsDetail";
 
 	}
 
