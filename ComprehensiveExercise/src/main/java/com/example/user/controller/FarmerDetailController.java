@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.example.repository.FarmerDetailRepository;
 import com.example.service.UserService;
 import com.example.user.FarmerDetail;
 import com.example.user.form.FarmerDetailForm;
@@ -19,8 +18,6 @@ public class FarmerDetailController {
 
 	@Autowired
 	UserService userService;
-	@Autowired
-	FarmerDetailRepository farmerDetailRepo;
 
 	@GetMapping("/detail/farmers/{farmerId}")
 	public String getFarmersDetail(@PathVariable("farmerId") Integer farmerId,
