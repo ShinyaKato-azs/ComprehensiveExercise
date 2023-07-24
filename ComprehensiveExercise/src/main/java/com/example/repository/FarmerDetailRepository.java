@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.user.FarmerDetail;
 
-public interface FarmerDetailRepository extends JpaRepository<FarmerDetail, Integer> {
+public interface FarmerDetailRepository extends JpaRepository<FarmerDetail, String> {
 
 	@Query(value = "select "
 			+ "    i.farmer_id "

@@ -12,12 +12,12 @@ import lombok.Data;
 @Component
 public class FarmerDetail {
 
-	@Id
 	@Column(name = "farmer_id")
 	private Integer farmerId;
 	@Column(name = "farmer_name")
 	private String farmerName;
 	//取り扱っている野菜名前
+	@Id
 	@Column(name = "farmer_items_name")
 	private String farmerItemsName;
 
