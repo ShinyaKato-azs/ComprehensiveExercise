@@ -23,7 +23,7 @@
 					<td  scope=row th:text="*{id}"></td>
 					<td th:text="*{name}"></td>
 					<td><img th:src="@{/{items}.png(items=*{id})}" width="300" height="200"></td>
-					<td><a th:href="@{/}" th:text=*{farmerName}></a></td>
+					<td><a th:href="@{'/detail/farmers/'+*{farmerId}}" th:text=*{farmerName}></a></td>
 					<td th:text="*{price}+円"></td>
 				</tr>
 			</table>
