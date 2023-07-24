@@ -1,12 +1,15 @@
 package com.example.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.repository.FarmerDetailRepository;
 import com.example.repository.UserRepository;
+import com.example.user.FarmerDetail;
 import com.example.user.VUser;
 
 @Service
@@ -14,6 +17,9 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserRepository repository;
+
+	@Autowired
+	private FarmerDetailRepository farmerDetailRepo;
 
 	@Autowired
 	private BCryptPasswordEncoder encoder;
@@ -59,6 +65,15 @@ public class UserServiceImpl implements UserService {
 		String userName = user.getUserName();
 
 		return userName;
+	}
+
+	//主キーで農家の詳細情報（id、名前、取り扱い野菜）を取得
+	@Override
+	public List<FarmerDetail> getFarmerDetails(Integer farmerId) {
+
+		List<FarmerDetail> farmerDetailList = farmerDetailRepo.getFarmerDetails(farmerId);
+
+		return farmerDetailList;
 	}
 
 }
