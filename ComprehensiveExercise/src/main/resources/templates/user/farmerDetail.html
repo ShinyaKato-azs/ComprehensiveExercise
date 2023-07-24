@@ -10,13 +10,14 @@
 	<div class="container">
 		<h2>農家詳細</h2>
 		<table th:object="${farmerDetailForm}" border="1" class="table table-striped text-center">
-			<th>農家ID</th>
-			<th>農家名</th>
-			<th>取り扱い野菜一覧</th>
-			
 			<tr>
-			<td th:text="*{farmerId}"></td>
-			<td th:text="*{farmerName}"></td>
+				<th>農家ID</th>
+				<th>農家名</th>
+				<th>取り扱い野菜一覧</th>
+			</tr>
+			<tr>
+				<td th:text="*{farmerId}"></td>
+				<td th:text="*{farmerName}"></td>
 			<td>
 				<p th:each="farmerDetail:${farmerDetails} " th:text="${farmerDetail.farmerItemsName}"></p>
 			</td>
