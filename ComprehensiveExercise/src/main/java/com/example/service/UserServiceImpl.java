@@ -16,7 +16,7 @@ import com.example.user.VUser;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserRepository repository;
+	private UserRepository userRepo;
 
 	@Autowired
 	private FarmerDetailRepository farmerDetailRepo;
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 		String rawPassword = signupUser.getPassword();
 		signupUser.setPassword(encoder.encode(rawPassword));
 
-		repository.save(signupUser);
+		userRepo.save(signupUser);
 
 	}
 
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public VUser getLoginUser(String userMail) {
 
-		Optional<VUser> option = repository.findByUserMail(userMail);
+		Optional<VUser> option = userRepo.findByUserMail(userMail);
 		VUser user = option.orElse(null);
 		return user;
 
@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 	public VUser getUserById(Integer userId) {
 
 		String stringUserId = userId.toString();
-		Optional<VUser> option = repository.findById(stringUserId);
+		Optional<VUser> option = userRepo.findById(stringUserId);
 		VUser user = option.orElse(null);
 		return user;
 
