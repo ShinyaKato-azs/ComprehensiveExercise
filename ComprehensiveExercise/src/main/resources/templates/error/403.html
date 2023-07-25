@@ -1,0 +1,17 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"></meta>
+  <link rel="stylesheet" th:href="@{/css/login.css}">
+  <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <title>権限エラー</title>
+</head>
+<body>
+	<div class="container">
+		<h2>403 Forbidden</h2>
+		<p>このページにアクセスする権限がありません</p>
+		<a th:href="@{/}">一覧画面に戻る</a>
+		<br>
+		<a th:href="@{/login}">ログイン画面に戻る</a>
+	</div>
+</body>
+</html>
