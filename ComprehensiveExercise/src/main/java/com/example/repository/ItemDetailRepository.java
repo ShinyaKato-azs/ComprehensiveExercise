@@ -20,6 +20,6 @@ public interface ItemDetailRepository extends JpaRepository<ItemDetail, Integer>
 			+ "        ON u.user_id = i.farmer_id "
 			+ "where "
 			+ "    i.id = :itemId ; ", nativeQuery = true)
-	public ItemDetail getOneItem(@Param("itemId") Integer itemId);
+	public ItemDetail getItemOne(@Param("itemId") Integer itemId);
 
 }

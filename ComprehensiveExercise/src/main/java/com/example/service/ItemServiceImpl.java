@@ -30,7 +30,7 @@ public class ItemServiceImpl implements ItemService {
 	public List<Items> getItems() {
 
 		List<Items> SortItems = repository.findAll();
-
+		//Idで昇順にソート
 		Collections.sort(SortItems, (x, y) -> x.getId() - y.getId());
 
 		return SortItems;
@@ -80,7 +80,7 @@ public class ItemServiceImpl implements ItemService {
 	@Override
 	public ItemDetail getItemOneWithUsername(Integer ItemId) {
 
-		ItemDetail itemDetail = itemDetailRepository.getOneItem(ItemId);
+		ItemDetail itemDetail = itemDetailRepository.getItemOne(ItemId);
 
 		return itemDetail;
 
