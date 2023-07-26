@@ -1,4 +1,4 @@
-package com.example.items;
+package com.example.items.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
-public class ItemList {
+public class ItemDetail {
 
 	@Id
 	@Column(name = "item_id")

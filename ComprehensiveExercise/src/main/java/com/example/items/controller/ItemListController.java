@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.items.ItemList;
-import com.example.items.Items;
+import com.example.items.entity.ItemList;
+import com.example.items.entity.Items;
 import com.example.items.form.AddForm;
 import com.example.service.ItemService;
 import com.example.service.UserService;
@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-public class TableController {
+public class ItemListController {
 
 	//配列を廃止
 	//	@Autowired

@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.items.ItemDetail;
-import com.example.items.Items;
+import com.example.items.entity.ItemDetail;
+import com.example.items.entity.Items;
 import com.example.items.form.DetailForm;
 import com.example.service.ItemService;
 

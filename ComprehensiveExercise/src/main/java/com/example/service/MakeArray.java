@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import org.springframework.stereotype.Service;
 
-import com.example.items.Items;
+import com.example.items.entity.Items;
 
 @Service
 public class MakeArray {

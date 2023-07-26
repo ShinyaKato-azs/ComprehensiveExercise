@@ -2,9 +2,9 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.items.ItemDetail;
-import com.example.items.ItemList;
-import com.example.items.Items;
+import com.example.items.entity.ItemDetail;
+import com.example.items.entity.ItemList;
+import com.example.items.entity.Items;
 
 public interface ItemService {
 
