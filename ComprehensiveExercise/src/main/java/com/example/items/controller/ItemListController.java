@@ -18,7 +18,7 @@ import com.example.items.entity.Items;
 import com.example.items.form.AddForm;
 import com.example.service.ItemService;
 import com.example.service.UserService;
-import com.example.user.VUser;
+import com.example.user.entity.VUser;
 
 import lombok.extern.slf4j.Slf4j;
 

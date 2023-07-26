@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.service.UserService;
-import com.example.user.VUser;
+import com.example.user.entity.VUser;
 import com.example.user.form.SignupForm;
 
 import lombok.extern.slf4j.Slf4j;

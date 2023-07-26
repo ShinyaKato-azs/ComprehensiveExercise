@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 
 import com.example.repository.FarmerDetailRepository;
 import com.example.repository.UserRepository;
-import com.example.user.FarmerDetail;
-import com.example.user.VUser;
+import com.example.user.entity.FarmerDetail;
+import com.example.user.entity.VUser;
 
 @Service
 public class UserServiceImpl implements UserService {

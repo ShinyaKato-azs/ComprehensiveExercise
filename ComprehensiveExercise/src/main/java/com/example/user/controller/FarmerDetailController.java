@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.service.UserService;
-import com.example.user.FarmerDetail;
+import com.example.user.entity.FarmerDetail;
 import com.example.user.form.FarmerDetailForm;
 
 @Controller

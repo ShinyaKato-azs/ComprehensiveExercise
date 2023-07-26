@@ -2,8 +2,8 @@ package com.example.service;
 
 import java.util.List;
 
-import com.example.user.FarmerDetail;
-import com.example.user.VUser;
+import com.example.user.entity.FarmerDetail;
+import com.example.user.entity.VUser;
 
 public interface UserService {
 
