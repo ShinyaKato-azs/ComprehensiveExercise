@@ -12,14 +12,16 @@
 		<table th:object="${farmerDetailForm}" border="1" class="table table-striped text-center">
 			<tr>
 				<th>農家ID</th>
+				<th>顔</th>
 				<th>農家名</th>
 				<th>取り扱い野菜一覧</th>
 			</tr>
-			<tr>
+			<tr class="align-middle">
 				<td th:text="*{farmerId}"></td>
+				<td><img class="rounded-circle" th:src="@{/images/farmers/{farmerId}.png(farmerId=*{farmerId})}" width="50%" height="50%"></td>
 				<td th:text="*{farmerName}"></td>
 			<td>
-				<p th:each="farmerDetail:${farmerDetails} " th:text="${farmerDetail.farmerItemsName}"></p>
+				<p th:each="farmerDetail:${farmerDetails} " th:text="${farmerDetail.farmerItemsName}" ></p>
 			</td>
 			</tr>
 		<table>

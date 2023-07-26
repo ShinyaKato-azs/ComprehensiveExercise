@@ -25,7 +25,7 @@
         <tr th:each="items:${dbItems} " class="tableRow"> 
             <td th:text="${items.id}"></td>
             <td th:text="${items.name}"></td>
-            <td><img th:src="@{/{items}.png(items=${items.id})}" width="300" height="200"></td>
+            <td><img th:src="@{/images/items/{items}.png(items=${items.id})}" width="300" height="200"></td>
             <td th:text="${@userServiceImpl.getUserNameById(items.farmerId)}"></td>
             <td th:text="${items.price}+円"></td>
             <td>
