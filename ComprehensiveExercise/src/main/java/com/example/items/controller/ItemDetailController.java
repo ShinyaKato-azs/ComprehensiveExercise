@@ -36,7 +36,7 @@ public class ItemDetailController {
 		form.setFarmerId(item.getFarmerId());
 		form.setFarmerName(item.getFarmerName());
 
-		return "items/itemsDetail";
+		return "items/itemDetail";
 
 	}
 
