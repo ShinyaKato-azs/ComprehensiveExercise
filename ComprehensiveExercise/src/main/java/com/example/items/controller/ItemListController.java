@@ -26,9 +26,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ItemListController {
 
-	//配列を廃止
-	//	@Autowired
-	//	private MakeArray makeArray;
 	@Autowired
 	private ItemService itemService;
 
@@ -38,10 +35,6 @@ public class ItemListController {
 	@GetMapping("/")
 	public String getVegetables(Model model, @ModelAttribute AddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
-
-		/** 廃止した機能 */
-		//		List<Items> items = applicationService.makeVegetableArray();
-		//		model.addAttribute("Items", items);
 
 		/** ログイン情報からログイン中のユーザーを取得 */
 		//【確認用】
