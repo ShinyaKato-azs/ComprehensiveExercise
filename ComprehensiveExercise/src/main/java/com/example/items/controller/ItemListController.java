@@ -84,8 +84,7 @@ public class ItemListController {
 		}
 		log.info(form.toString());
 
-		//formで受け取ったフィールドの値をitemクラスのインスタンスにコピー。
-		//modelMapperを使用してコピーしても可
+		//formで受け取ったフィールドの値をitemクラスのインスタンスにコピー（modelMapperを使用してコピーしても可）
 		Items item = new Items();
 
 		//DB側で連番で振られるため、nullでセット
@@ -94,7 +93,7 @@ public class ItemListController {
 		item.setFarmerId(form.getFarmerId());
 
 		String formName = form.getName();
-		//最後の文字をカットして、itemクラスのフィールドとして登録
+		//最後の文字をカットして、itemクラスのフィールドにセット
 		item.setName(itemService.trimFormName(formName));
 		//DBに登録
 		itemService.addItem(item);
