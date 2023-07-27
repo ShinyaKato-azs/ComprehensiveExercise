@@ -9,7 +9,7 @@
 <body>
 	<div id="contents" class="container bg-light text-center">
 		<p th:text="'ログイン中のユーザー：'+${loginUser.userName}"></p>
-	   <form th:action="@{/add}" method="POST" th:object="${addForm}">
+	   <form th:action="@{/add}" method="POST" th:object="${itemAddForm}">
 		   <input type="text" name="name" th:field="*{name}"placeholder="商品名を入力"
 		   th:errorclass="is-invaid"/input>
 		   <font color="red">

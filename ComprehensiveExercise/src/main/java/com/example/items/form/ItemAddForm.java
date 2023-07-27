@@ -6,7 +6,7 @@ import lombok.Data;
 
 //フォームから受け取った内容をバインドするためのクラス
 @Data
-public class AddForm {
+public class ItemAddForm {
 
 	@NotBlank
 	@Size(min = 0, max = 4)

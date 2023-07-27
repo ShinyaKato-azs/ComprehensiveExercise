@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.items.entity.ItemDetail;
 import com.example.items.entity.Items;
-import com.example.items.form.DetailForm;
+import com.example.items.form.ItemDetailForm;
 import com.example.service.ItemService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -23,26 +23,26 @@ public class ItemDetailController {
 	@Autowired
 	private ItemService itemService;
 
-	//詳細画面を返す
+	/** 詳細画面を返す */
 	@GetMapping("/detail/{itemId}")
-	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute DetailForm detailForm) {
+	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute ItemDetailForm form) {
 
 		//主キーで探して商品を1件返す
 		ItemDetail item = itemService.getItemOneWithUsername(itemId);
 		//Formクラスにitemをコピー
-		detailForm.setId(itemId);
-		detailForm.setName(item.getName());
-		detailForm.setPrice(item.getPrice());
-		detailForm.setFarmerId(item.getFarmerId());
-		detailForm.setFarmerName(item.getFarmerName());
+		form.setId(itemId);
+		form.setName(item.getName());
+		form.setPrice(item.getPrice());
+		form.setFarmerId(item.getFarmerId());
+		form.setFarmerName(item.getFarmerName());
 
 		return "items/itemsDetail";
 
 	}
 
-	//更新処理
+	/** 更新処理 */
 	@PostMapping("/detail/{itemId}/update")
-	public String updateItem(@ModelAttribute @Validated DetailForm form, BindingResult bindingResult,
+	public String updateItem(@ModelAttribute @Validated ItemDetailForm form, BindingResult bindingResult,
 			@PathVariable("itemId") Integer itemId) {
 
 		if (bindingResult.hasErrors()) {
@@ -66,9 +66,9 @@ public class ItemDetailController {
 		return "redirect:/";
 	}
 
-	//削除処理
+	/** 削除処理 */
 	@PostMapping("/detail/{itemId}/delete")
-	public String delteItem(@ModelAttribute DetailForm form) {
+	public String delteItem(@ModelAttribute ItemDetailForm form) {
 
 		//postが正しく機能しているかログで確認
 		log.info(form.toString());

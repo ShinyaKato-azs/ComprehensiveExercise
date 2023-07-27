@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.items.entity.ItemList;
 import com.example.items.entity.Items;
-import com.example.items.form.AddForm;
+import com.example.items.form.ItemAddForm;
 import com.example.service.ItemService;
 import com.example.service.UserService;
 import com.example.user.entity.VUser;
@@ -33,7 +33,7 @@ public class ItemListController {
 	private UserService userService;
 
 	@GetMapping("/")
-	public String getVegetables(Model model, @ModelAttribute AddForm form,
+	public String getVegetables(Model model, @ModelAttribute ItemAddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
 
 		/** ログイン情報からログイン中のユーザーを取得 */
@@ -58,7 +58,7 @@ public class ItemListController {
 	}
 
 	@GetMapping("/input")
-	public String getVegetablesInput(@ModelAttribute AddForm form, Model model,
+	public String getVegetablesInput(@ModelAttribute ItemAddForm form, Model model,
 			@AuthenticationPrincipal UserDetails userDetails) {
 
 		/** ログイン情報からログイン中のユーザーを取得 */
@@ -74,7 +74,7 @@ public class ItemListController {
 	}
 
 	@PostMapping("/add")
-	public String postVegetables(@ModelAttribute @Validated AddForm form, BindingResult bindingResult,
+	public String postVegetables(@ModelAttribute @Validated ItemAddForm form, BindingResult bindingResult,
 			Model model, @AuthenticationPrincipal UserDetails userDetails) {
 
 		if (bindingResult.hasErrors()) {

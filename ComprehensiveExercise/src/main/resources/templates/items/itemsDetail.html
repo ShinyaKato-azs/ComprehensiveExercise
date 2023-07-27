@@ -11,7 +11,7 @@
 	<div class="contents">
 		<div class="elements">
 			<h3>商品詳細</h2>
-			 <table border="1" th:object="${detailForm}" class="table table-striped text-center">
+			 <table border="1" th:object="${itemDetailForm}" class="table table-striped text-center">
 				<tr>
 					<th>商品ID</th>
 					<th>商品名</th>
@@ -32,7 +32,7 @@
 		<!--更新フォームと削除ボタンは農家権限意外に見えないように設定-->
 		<div class="forms" style="float:left" sec:authorize="hasRole('ROLE_FARMER')">
 			<h4>名前と価格の変更</h4>
-			<form th:action="@{'/detail/'+${detailForm.id}+'/update'}" method="POST" th:object="${detailForm}">
+			<form th:action="@{'/detail/'+${itemDetailForm.id}+'/update'}" method="POST" th:object="${itemDetailForm}">
 			   <input type="hidden" name="id" th:field="*{id}">
 			   <input type="text" name="name" th:field="*{name}"
 			   th:errorclass="is-invaid"/input>
@@ -45,8 +45,8 @@
 			   <input type="submit" value="送信" class="btn btn-sm btn-primary" /input>
 		   </form>
 		   <h4>商品の削除</h4>
-		   <form th:action="@{'/detail/'+${detailForm.id}}+'/delete'" method="POST"
-		    th:object="${detailForm}" onsubmit="return deleteConfirm()">
+		   <form th:action="@{'/detail/'+${itemDetailForm.id}}+'/delete'" method="POST"
+		    th:object="${itemDetailForm}" onsubmit="return deleteConfirm()">
 			   <input type="hidden" name="id" th:field="*{id}">
 			   <input type="hidden" name="name" th:field="*{name}">
 			   <button type="submit" class="btn btn-danger">
