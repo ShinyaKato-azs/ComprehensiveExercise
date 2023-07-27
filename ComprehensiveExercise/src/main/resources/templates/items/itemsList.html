@@ -7,56 +7,52 @@
   <title>Vegetables</title>
 </head>
 <body>
-   <div id="loginUser" class="bg-light  border-bottom border-3">
-	   <p th:text="'ログイン中のユーザー：'+${loginUser.userName}" class="d-inline p-2"></p>
-	   <a th:href="@{/input}" style="padding-right:10px;">登録はこちら</a>
-	   <a th:href="@{/logout}" >ログアウト</a>
-   </div>
-   <br>
-  <table id=itemsTable class="table table-striped" border="1">
-        <tr> 
-            <th>商品ID </th>
-            <th>商品名</th>
-            <th>商品参考画像</th>
-            <th>タイムリーフから呼び出した農家名</th>
-            <th>価格</th>
-            <th>更新・削除はここから（農家限定）</th>
-        </tr>
-        <tr th:each="items:${dbItems} " class="tableRow"> 
-            <td th:text="${items.id}"></td>
-            <td th:text="${items.name}"></td>
-            <td><img th:src="@{/images/items/{items}.png(items=${items.id})}" width="300" height="200"></td>
-            <td th:text="${@userServiceImpl.getUserNameById(items.farmerId)}"></td>
-            <td th:text="${items.price}+円"></td>
-            <td>
-				<a th:href="@{'/detail/'+${items.id}}">
-					詳細
-				</a>
-			</td>
-        </tr>
-   </table> 
-   <br>
+	<div id="loginUser" class="bg-light  border-bottom border-3">
+		   <p th:text="'ログイン中のユーザー：'+${loginUser.userName}" class="d-inline p-2"></p>
+		   <a th:href="@{/input}" style="padding-right:10px;">登録はこちら</a>
+		   <a th:href="@{/logout}" >ログアウト</a>
+	</div>
+	<br>
    <table id="itemsTable"  class="table table-striped" border="1">
         <tr> 
-            <th>商品ID </th>
-            <th>商品名</th>
-            <th>商品参考画像</th>
-            <th>テーブル結合で呼び出した農家名</th>
-            <th>価格</th>
-            <th>更新・削除はここから（農家限定）</th>
-        </tr>
-        <tr th:each="items:${itemAndUsername} " class="tableRow"> 
-            <td th:text="${items.itemId}"></td>
-            <td th:text="${items.name}"></td>
-            <td><img th:src="@{/{items}.png(items=${items.itemId})}" width="300" height="200"></td>
-            <td th:text="${items.farmerName}"></td>
-            <td th:text="${items.price}+円"></td>
-            <td>
-				<a th:href="@{'/detail/'+${items.itemId}}">
-					詳細
-				</a>
+			 <th>商品ID </th>
+			 <th>商品名</th>
+			 <th>商品参考画像</th>
+			 <th>農家名</th>
+			 <th>価格</th>
+			 <th>更新・削除はここから（農家限定）</th>
+		</tr>
+		 <tr th:each="items:${itemAndUsername} " class="tableRow"> 
+			<td th:text="${items.itemId}"></td>
+			 <td th:text="${items.name}"></td>
+			 <td><img th:src="@{/images/items/{items}.png(items=${items.itemId})}" width="300" height="200"></td>
+			 <td th:text="${items.farmerName}"></td>
+			 <td th:text="${items.price}+円"></td>
+			 <td>
+				<a th:href="@{'/detail/'+${items.itemId}}">詳細</a>
 			</td>
-        </tr>
-   </table> 
+		</tr>
+	</table> 
+	<br>
+	<table id=itemsTable class="table table-striped" border="1">
+		<tr> 
+			<th>商品ID </th>
+			<th>商品名</th>
+			<th>商品参考画像</th>
+			<th>タイムリーフから呼び出した農家名</th>
+			<th>価格</th>
+			<th>更新・削除はここから（農家限定）</th>
+		</tr>
+		<tr th:each="items:${dbItems} " class="tableRow"> 
+			<td th:text="${items.id}"></td>
+			<td th:text="${items.name}"></td>
+			<td><img th:src="@{/images/items/{items}.png(items=${items.id})}" width="300" height="200"></td>
+			<td th:text="${@userServiceImpl.getUserNameById(items.farmerId)}"></td>
+			<td th:text="${items.price}+円"></td>
+			<td>
+				<a th:href="@{'/detail/'+${items.id}}">詳細</a>
+			</td>
+			</tr>
+	</table> 
 </body>
 </html>
