@@ -25,7 +25,7 @@ public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemDetailRepository itemDetailRepository;
 
-	//一覧取得機能
+	/** 一覧取得機能 */
 	@Override
 	public List<Items> getItems() {
 
@@ -37,7 +37,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//登録機能
+	/** 登録機能 */
 	@Transactional
 	@Override
 	public void addItem(Items item) {
@@ -46,7 +46,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//1文字削除する機能
+	/** 1文字削除する機能 */
 	@Override
 	public String trimFormName(String formName) {
 
@@ -65,7 +65,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//商品取得（1件）
+	/** 商品取得（1件）*/
 	@Override
 	public Items getItemOne(Integer itemId) {
 
@@ -76,7 +76,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//商品＋農家名取得（1件）
+	/** 商品＋農家名取得（1件）*/
 	@Override
 	public ItemDetail getItemOneWithUsername(Integer ItemId) {
 
@@ -86,7 +86,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//商品更新
+	/** 商品更新 */
 	@Override
 	public void updateItemOne(Items item) {
 
@@ -94,7 +94,7 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//商品削除
+	/** 商品削除 */
 	@Override
 	public void deleteItemOne(Integer itemId) {
 
@@ -102,15 +102,15 @@ public class ItemServiceImpl implements ItemService {
 
 	}
 
-	//農家名とともに商品一覧を取得
+	/** 農家名とともに商品一覧を取得 */
 	@Override
 	public List<ItemList> getItemsWithUsername() {
 
-		List<ItemList> SortItems = itemListRepository.findItems();
+		List<ItemList> items = itemListRepository.findItems();
 
-		Collections.sort(SortItems, (x, y) -> x.getItemId() - y.getItemId());
+		Collections.sort(items, (x, y) -> x.getItemId() - y.getItemId());
 
-		return SortItems;
+		return items;
 
 	}
 
