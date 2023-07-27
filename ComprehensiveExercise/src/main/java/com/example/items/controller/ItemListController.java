@@ -69,7 +69,7 @@ public class ItemListController {
 		/**AddFormのfarmerIdにログイン中のユーザーのIDをセット*/
 		form.setFarmerId(loginUser.getUserId());
 
-		return "items/itemsInput";
+		return "items/itemAdd";
 
 	}
 
