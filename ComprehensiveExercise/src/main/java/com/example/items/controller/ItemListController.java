@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
-/** 商品一覧画面のコントローラー */
+/** 商品一覧・追加画面のコントローラー */
 public class ItemListController {
 
 	@Autowired
@@ -34,22 +34,25 @@ public class ItemListController {
 	private UserService userService;
 
 	@GetMapping("/")
-	public String getVegetables(Model model, @ModelAttribute ItemAddForm form,
+	public String getItemsList(Model model, @ModelAttribute ItemAddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {
 
-		/** ログイン情報からログイン中のユーザーを取得 */
-		//【確認用】
-		//log.info("ログイン情報の中身:" + userDetails.toString());
+		/*
+		 * ログイン情報がこのメソッドに正しく引き渡されているか確認
+		 * log.info("ログイン情報の中身:" + userDetails.toString());
+		 */
+
+		//ログイン情報のユーザーネーム（メールアドレス）からログイン中のユーザーを取得
 		String loginUserMail = userDetails.getUsername();
 		VUser loginUser = userService.getLoginUser(loginUserMail);
 		model.addAttribute("loginUser", loginUser);
 
-		/** 全てのレコードを取得してthymeleafに渡す */
+		//商品情報を全件取得
 		List<Items> dbItems = itemService.getItems();
 		log.info(dbItems.toString());
 		model.addAttribute("dbItems", dbItems);
 
-		/**結合したテーブルから商品情報と農家名を取得*/
+		//機能拡張：商品情報＋その商品を登録した農家名を全件取得
 		List<ItemList> ItemAndUsername = itemService.getItemsWithUsername();
 		log.info(ItemAndUsername.toString());
 		model.addAttribute("itemAndUsername", ItemAndUsername);
@@ -58,16 +61,21 @@ public class ItemListController {
 
 	}
 
-	@GetMapping("/input")
-	public String getVegetablesInput(@ModelAttribute ItemAddForm form, Model model,
+	@GetMapping("/add")
+	public String getItemAdd(@ModelAttribute ItemAddForm form, Model model,
 			@AuthenticationPrincipal UserDetails userDetails) {
 
-		/** ログイン情報からログイン中のユーザーを取得 */
+		/*
+		 * 商品追加時に農家IDを自動で登録するために、
+		 * ログイン中のユーザーを取得する
+		 */
 		String loginUserMail = userDetails.getUsername();
 		VUser loginUser = userService.getLoginUser(loginUserMail);
 		model.addAttribute("loginUser", loginUser);
 
-		/**AddFormのfarmerIdにログイン中のユーザーのIDをセット*/
+		/* htmlの商品追加フォームはAddFormとバインドしているため、
+		 * AddFormの農家IDフィールドにログイン中のユーザーのIDをセットして渡しておく
+		 */
 		form.setFarmerId(loginUser.getUserId());
 
 		return "items/itemAdd";
@@ -75,28 +83,25 @@ public class ItemListController {
 	}
 
 	@PostMapping("/add")
-	public String postVegetables(@ModelAttribute @Validated ItemAddForm form, BindingResult bindingResult,
+	public String postItemAdd(@ModelAttribute @Validated ItemAddForm form, BindingResult bindingResult,
 			Model model, @AuthenticationPrincipal UserDetails userDetails) {
 
 		if (bindingResult.hasErrors()) {
 
-			return getVegetablesInput(form, model, userDetails);
+			return getItemAdd(form, model, userDetails);
 
 		}
-		log.info(form.toString());
 
-		//formで受け取ったフィールドの値をitemクラスのインスタンスにコピー（modelMapperを使用してコピーしても可）
+		//フォームのフィールドをエンティティクラスにコピー
 		Items item = new Items();
-
-		//DB側で連番で振られるため、nullでセット
+		//IDはDB側で連番で振られるため、nullでセット
 		item.setId(null);
 		item.setPrice(form.getPrice());
 		item.setFarmerId(form.getFarmerId());
 
+		//最後の文字はカットして登録する
 		String formName = form.getName();
-		//最後の文字をカットして、itemクラスのフィールドにセット
 		item.setName(itemService.trimFormName(formName));
-		//DBに登録
 		itemService.addItem(item);
 
 		return "redirect:/";
