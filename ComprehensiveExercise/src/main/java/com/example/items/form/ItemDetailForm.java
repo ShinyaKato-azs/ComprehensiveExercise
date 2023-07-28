@@ -10,6 +10,7 @@ public class ItemDetailForm {
 
 	/** 商品ID */
 	private Integer id;
+
 	/**
 	 *商品名
 	 *空文字や半角スペースのみは不可
