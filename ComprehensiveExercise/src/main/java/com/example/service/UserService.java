@@ -5,6 +5,7 @@ import java.util.List;
 import com.example.user.entity.FarmerDetail;
 import com.example.user.entity.VUser;
 
+/** ユーザーの取得・更新のためのサービスインターフェース */
 public interface UserService {
 
 	//ユーザー登録

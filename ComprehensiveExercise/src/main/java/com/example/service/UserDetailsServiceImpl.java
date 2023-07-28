@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import com.example.user.entity.VUser;
 
 @Service
+/** DBのユーザー情報でログイン認証を行うための自作UserDetailsService実装クラス */
 public class UserDetailsServiceImpl implements UserDetailsService {
 
 	@Autowired

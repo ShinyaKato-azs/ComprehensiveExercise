@@ -16,6 +16,7 @@ import com.example.repository.ItemListRepository;
 import com.example.repository.ItemsRepository;
 
 @Service
+/** 商品の取得・更新・削除のためのサービス実装クラス */
 public class ItemServiceImpl implements ItemService {
 
 	@Autowired
@@ -30,7 +31,7 @@ public class ItemServiceImpl implements ItemService {
 	public List<Items> getItems() {
 
 		List<Items> SortItems = repository.findAll();
-		//Idで昇順にソート
+		//findAll()は順番が保証されないため、商品Idで昇順にソート
 		Collections.sort(SortItems, (x, y) -> x.getId() - y.getId());
 
 		return SortItems;

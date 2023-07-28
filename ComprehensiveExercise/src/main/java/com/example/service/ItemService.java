@@ -6,6 +6,7 @@ import com.example.items.entity.ItemDetail;
 import com.example.items.entity.ItemList;
 import com.example.items.entity.Items;
 
+/** 商品の取得・更新・削除のためのサービスインターフェース */
 public interface ItemService {
 
 	/** 一覧表示 */

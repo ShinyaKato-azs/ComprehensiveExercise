@@ -13,6 +13,7 @@ import com.example.user.entity.FarmerDetail;
 import com.example.user.entity.VUser;
 
 @Service
+/** ユーザーの取得・更新のためのサービス実装クラス */
 public class UserServiceImpl implements UserService {
 
 	@Autowired
