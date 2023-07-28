@@ -17,7 +17,11 @@
 		   </font>
 		   <br>
 		   <br>
-		   <input type="text" th:field="*{price}" placeholder="価格を入力" >
+		   <input type="number" th:field="*{price}" placeholder="価格を入力"
+		   th:errorclass="is-invaid">
+		   <font color="red">
+			   <div th:errors="*{price}"></div>
+		   </font>
 		   <br>
 		   <input type="hidden" th:field="*{farmerId}">
 		   <br>
