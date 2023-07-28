@@ -40,7 +40,10 @@
 				   <div th:errors="*{name}"></div>
 			   </font>
 			   <br>
-			   <input type="text" name="price" th:field="*{price}" /input>
+			   <input type="number" name="price" th:field="*{price}" th:errorclass="is-invaid" /input>
+			   <font color="red">
+				   <div th:errors="*{price}"></div>
+			   </font>
 			   <br>
 			   <input type="submit" value="送信" class="btn btn-sm btn-primary" /input>
 		   </form>
