@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.items.entity.ItemDetail;
 
+/** 商品詳細画面のリポジトリ */
 public interface ItemDetailRepository extends JpaRepository<ItemDetail, Integer> {
 
 	@Query(value = "select "

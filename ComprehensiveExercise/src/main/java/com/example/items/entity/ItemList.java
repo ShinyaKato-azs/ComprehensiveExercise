@@ -7,6 +7,7 @@ import lombok.Data;
 
 @Entity
 @Data
+/** 商品一覧画面のエンティティクラス */
 public class ItemList {
 
 	@Id

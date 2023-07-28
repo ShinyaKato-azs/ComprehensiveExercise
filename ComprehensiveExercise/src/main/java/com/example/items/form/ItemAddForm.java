@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-//フォームから受け取った内容をバインドするためのクラス
+/** 商品追加画面のフォームとバインドするためのクラス */
 @Data
 public class ItemAddForm {
 

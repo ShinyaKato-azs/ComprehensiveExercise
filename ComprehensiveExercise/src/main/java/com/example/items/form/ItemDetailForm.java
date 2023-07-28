@@ -3,7 +3,7 @@ package com.example.items.form;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-//フォームから受け取った内容をバインドするためのクラス
+/** 商品詳細画面にデータを渡して、フォームとバインドするためのクラス */
 @Data
 public class ItemDetailForm {
 

@@ -18,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+/** 詳細画面のコントローラー */
 public class ItemDetailController {
 
 	@Autowired

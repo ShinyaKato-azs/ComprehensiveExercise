@@ -8,6 +8,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.example.user.entity.FarmerDetail;
 
+/** 農家詳細画面のリポジトリ */
 public interface FarmerDetailRepository extends JpaRepository<FarmerDetail, String> {
 
 	@Query(value = "select "

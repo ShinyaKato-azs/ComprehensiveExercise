@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "items")
+/** 商品のエンティティクラス */
 public class Items {
 
 	@Id
