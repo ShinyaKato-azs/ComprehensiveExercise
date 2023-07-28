@@ -9,13 +9,13 @@ import com.example.items.entity.Items;
 /** 商品の取得・更新・削除のためのサービスインターフェース */
 public interface ItemService {
 
-	/** 一覧表示 */
+	/** 商品一覧表示 */
 	public List<Items> getItems();
 
-	/** 登録 */
+	/** 商品登録 */
 	public void addItem(Items item);
 
-	/** 登録時の文字カット機能 */
+	/** 商品登録時の文字カット機能 */
 	public String trimFormName(String formName);
 
 	/** 商品取得（1件） */

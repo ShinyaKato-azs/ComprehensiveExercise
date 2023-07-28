@@ -108,7 +108,7 @@ public class ItemServiceImpl implements ItemService {
 	public List<ItemList> getItemsWithUsername() {
 
 		List<ItemList> items = itemListRepository.findItems();
-
+		//商品IDで昇順にソート
 		Collections.sort(items, (x, y) -> x.getItemId() - y.getItemId());
 
 		return items;

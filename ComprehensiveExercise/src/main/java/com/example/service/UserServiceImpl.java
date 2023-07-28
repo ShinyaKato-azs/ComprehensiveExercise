@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
-	//ユーザー登録
+	/** ユーザー登録 */
 	@Override
 	public void signupUser(VUser signupUser) {
 
@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	//ログインを試みている・またはログイン中のユーザーの取得
+	/** ログインを試みている・またはログイン中のユーザーの取得 */
 	@Override
 	public VUser getLoginUser(String userMail) {
 
@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	//主キー（＝商品テーブルの農家ID）でユーザー情報を取得する
+	/** ユーザーIDでユーザー情報を取得する */
 	@Override
 	public VUser getUserById(Integer userId) {
 
@@ -58,7 +58,7 @@ public class UserServiceImpl implements UserService {
 
 	}
 
-	//主キー（＝商品テーブルの農家ID）でユーザー名を取得する
+	/** ユーザーIDでユーザー名を取得する */
 	@Override
 	public String getUserNameById(Integer userId) {
 
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 		return userName;
 	}
 
-	//主キーで農家の詳細情報（id、名前、取り扱い野菜）を取得
+	/** ユーザーIDでFarmerDetailクラスのフィールド要素を取得（全件） */
 	@Override
 	public List<FarmerDetail> getFarmerDetails(Integer farmerId) {
 
