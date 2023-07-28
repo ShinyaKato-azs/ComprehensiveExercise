@@ -17,10 +17,8 @@ import com.example.service.ItemService;
 import com.example.service.UserService;
 import com.example.user.entity.VUser;
 
-import lombok.extern.slf4j.Slf4j;
-
 @Controller
-@Slf4j
+
 /** 商品追加画面のコントローラー */
 public class ItemAddController {
 
@@ -30,6 +28,7 @@ public class ItemAddController {
 	@Autowired
 	private UserService userService;
 
+	/** 商品追加画面を返す */
 	@GetMapping("/add")
 	public String getItemAdd(@ModelAttribute ItemAddForm form, Model model,
 			@AuthenticationPrincipal UserDetails userDetails) {
@@ -42,7 +41,7 @@ public class ItemAddController {
 		VUser loginUser = userService.getLoginUser(loginUserMail);
 		model.addAttribute("loginUser", loginUser);
 
-		/* htmlの商品追加フォームはAddFormとバインドしているため、
+		/* htmlのフォームはAddFormクラスとバインドしているため、
 		 * AddFormの農家IDフィールドにログイン中のユーザーのIDをセットして渡しておく
 		 */
 		form.setFarmerId(loginUser.getUserId());
@@ -51,6 +50,7 @@ public class ItemAddController {
 
 	}
 
+	/** 商品追加画面で送信されたフォームを受け取る */
 	@PostMapping("/add")
 	public String postItemAdd(@ModelAttribute @Validated ItemAddForm form, BindingResult bindingResult,
 			Model model, @AuthenticationPrincipal UserDetails userDetails) {

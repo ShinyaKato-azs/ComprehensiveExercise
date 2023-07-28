@@ -30,6 +30,7 @@ public class ItemListController {
 	@Autowired
 	private UserService userService;
 
+	/** 商品一覧画面を返す */
 	@GetMapping("/")
 	public String getItemsList(Model model, @ModelAttribute ItemAddForm form,
 			@AuthenticationPrincipal UserDetails userDetails) {

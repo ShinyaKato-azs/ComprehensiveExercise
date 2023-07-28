@@ -24,13 +24,16 @@ public class ItemDetailController {
 	@Autowired
 	private ItemService itemService;
 
-	/** 詳細画面を返す */
+	/** 商品詳細画面を返す */
 	@GetMapping("/detail/{itemId}")
-	public String getVegetablesDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute ItemDetailForm form) {
+	public String getItemDetail(@PathVariable("itemId") Integer itemId, @ModelAttribute ItemDetailForm form) {
 
-		//主キーで探して商品を1件返す
+		/*
+		 *商品詳細画面では、商品情報に加えて、農家名も表示する
+		 *そのため、商品テーブルとユーザーテーブルを結合して詳細情報を取得する
+		 */
 		ItemDetail item = itemService.getItemOneWithUsername(itemId);
-		//Formクラスにitemをコピー
+
 		form.setId(itemId);
 		form.setName(item.getName());
 		form.setPrice(item.getPrice());
@@ -41,27 +44,28 @@ public class ItemDetailController {
 
 	}
 
-	/** 更新処理 */
+	/** 商品名・価格の更新処理 */
 	@PostMapping("/detail/{itemId}/update")
 	public String updateItem(@ModelAttribute @Validated ItemDetailForm form, BindingResult bindingResult,
 			@PathVariable("itemId") Integer itemId) {
 
 		if (bindingResult.hasErrors()) {
 
-			return getVegetablesDetail(itemId, form);
+			return getItemDetail(itemId, form);
 
 		}
 
 		log.info(form.toString());
 
-		//idが一致する商品を持ってくる
+		/*
+		 * フォームから受け取った商品idと一致する商品を持ってくる
+		 * 商品IDと農家IDは更新せず、名前と価格フィールドだけを更新する
+		 */
 		Items updateItem = itemService.getItemOne(itemId);
-		//名前と価格フィールドだけ変更
 		updateItem.setName(form.getName());
 		updateItem.setPrice(form.getPrice());
 		log.info(updateItem.toString());
 
-		//更新
 		itemService.updateItemOne(updateItem);
 
 		return "redirect:/";
@@ -71,9 +75,9 @@ public class ItemDetailController {
 	@PostMapping("/detail/{itemId}/delete")
 	public String delteItem(@ModelAttribute ItemDetailForm form) {
 
-		//postが正しく機能しているかログで確認
+		//postが正しく機能しているかをログで確認
 		log.info(form.toString());
-		//		削除はIDの管理が面倒なのでコメントアウト（動作確認済み）
+		//		削除はIDの管理が面倒なのでコメントアウト中（動作確認済み）
 		//		itemService.deleteItemOne(form.getId());
 
 		return "redirect:/";
