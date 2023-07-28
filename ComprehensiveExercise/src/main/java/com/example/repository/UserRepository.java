@@ -9,6 +9,7 @@ import com.example.user.entity.VUser;
 /** ユーザー管理（ログイン・新規登録）のためのリポジトリ */
 public interface UserRepository extends JpaRepository<VUser, String> {
 
+	/** ユーザーを登録メールアドレスで取得する */
 	public Optional<VUser> findByUserMail(String userMail);
 
 }

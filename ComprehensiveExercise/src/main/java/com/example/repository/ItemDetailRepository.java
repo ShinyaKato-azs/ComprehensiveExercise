@@ -21,6 +21,10 @@ public interface ItemDetailRepository extends JpaRepository<ItemDetail, Integer>
 			+ "        ON u.user_id = i.farmer_id "
 			+ "where "
 			+ "    i.id = :itemId ; ", nativeQuery = true)
+	/** 
+	 * 商品IDで指定する
+	 * ItemDetailエンティティのフィールド要素を取得 
+	 */
 	public ItemDetail getItemOne(@Param("itemId") Integer itemId);
 
 }

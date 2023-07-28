@@ -21,7 +21,7 @@ public interface FarmerDetailRepository extends JpaRepository<FarmerDetail, Stri
 			+ "        ON u.user_id = i.farmer_id "
 			+ "where "
 			+ "    i.farmer_id = :farmerId ; ", nativeQuery = true)
-
+	/** 農家IDで指定し、農家ID・農家名・取り扱い商品を全件取得 */
 	public List<FarmerDetail> getFarmerDetails(@Param("farmerId") Integer farmerId);
 
 }

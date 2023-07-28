@@ -21,6 +21,7 @@ public interface ItemListRepository extends JpaRepository<ItemList, Integer> {
 			+ "    v_user u "
 			+ "    INNER JOIN items as i "
 			+ "        ON u.user_id = i.farmer_id; ", nativeQuery = true)
+	/** Itemエンティティの要素＋農家名で全件取得 */
 	public List<ItemList> findItems();
 
 	@Query(value = "select "
@@ -35,6 +36,7 @@ public interface ItemListRepository extends JpaRepository<ItemList, Integer> {
 			+ "        ON u.user_id = i.farmer_id "
 			+ "where "
 			+ "    i.id = :itemId ; ", nativeQuery = true)
+	/** Itemエンティティの要素＋農家名で1件取得 */
 	public ItemList getOneItem(@Param("itemId") Integer itemId);
 
 }
