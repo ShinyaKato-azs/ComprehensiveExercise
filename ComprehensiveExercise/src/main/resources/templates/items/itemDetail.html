@@ -33,20 +33,25 @@
 		<div class="forms" style="float:left" sec:authorize="hasRole('ROLE_FARMER')">
 			<h4>名前と価格の変更</h4>
 			<form th:action="@{'/detail/'+${itemDetailForm.id}+'/update'}" method="POST" th:object="${itemDetailForm}">
-			   <input type="hidden" name="id" th:field="*{id}">
-			   <input type="text" name="name" th:field="*{name}"
-			   th:errorclass="is-invaid"/input>
-			   <font color="red">
+				<input type="hidden" name="id" th:field="*{id}">
+				<label for="name">商品名</label>
+				<br>
+				<input type="text" name="name" th:field="*{name}"
+				th:errorclass="is-invaid"/input>
+				<font color="red">
 				   <div th:errors="*{name}"></div>
-			   </font>
-			   <br>
-			   <input type="number" name="price" th:field="*{price}" th:errorclass="is-invaid" /input>
-			   <font color="red">
+				</font>
+				<br>
+				<label for="price">価格</label>
+				<br>
+				<input type="number" name="price" th:field="*{price}" th:errorclass="is-invaid" /input>
+				 <font color="red">
 				   <div th:errors="*{price}"></div>
-			   </font>
-			   <br>
-			   <input type="submit" value="送信" class="btn btn-sm btn-primary" /input>
+				 </font>
+				 <br>
+				 <input type="submit" value="送信" class="btn btn-sm btn-primary" /input>
 		   </form>
+		   <br>
 		   <h4>商品の削除</h4>
 		   <form th:action="@{'/detail/'+${itemDetailForm.id}}+'/delete'" method="POST"
 		    th:object="${itemDetailForm}" onsubmit="return deleteConfirm()">
