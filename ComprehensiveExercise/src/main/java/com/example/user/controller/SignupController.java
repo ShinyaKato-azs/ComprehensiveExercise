@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Controller
 @Slf4j
+/** 新規ユーザー登録画面のコントローラー */
 public class SignupController {
 
 	//	@Autowired

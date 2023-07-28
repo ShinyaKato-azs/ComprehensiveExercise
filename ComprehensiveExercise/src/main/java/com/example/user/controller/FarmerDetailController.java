@@ -14,6 +14,7 @@ import com.example.user.entity.FarmerDetail;
 import com.example.user.form.FarmerDetailForm;
 
 @Controller
+/** 農家詳細画面のコントローラー */
 public class FarmerDetailController {
 
 	@Autowired

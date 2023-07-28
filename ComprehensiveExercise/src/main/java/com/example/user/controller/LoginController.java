@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+/** ログイン画面のコントローラー */
 public class LoginController {
 
 	@GetMapping("/login")
