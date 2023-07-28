@@ -28,12 +28,14 @@ public class SignupController {
 	@Autowired
 	private UserService userService;
 
+	/** ユーザー新規登録画面を返す */
 	@GetMapping("/signup")
 	public String getSignup(@ModelAttribute SignupForm form) {
 
 		return ("user/signup");
 	}
 
+	/** ユーザー新規登録フォームを受け取る */
 	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute @Validated SignupForm form,
 			BindingResult bindingResult) {
@@ -44,7 +46,7 @@ public class SignupController {
 			return getSignup(form);
 
 		}
-		//フォームのコピー
+
 		//IdはDB側で自動採番されるため、nullで設定する
 		user.setUserId(null);
 		user.setUserMail(form.getUserMail());

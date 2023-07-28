@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 /** ログイン画面のコントローラー */
 public class LoginController {
 
+	/** ログイン画面を返す */
 	@GetMapping("/login")
 	public String getLogin() {
 		return "/user/login";
 	}
 
+	/** ログイン画面のフォームを受け取る（ログインの処理はSpringSecurityが担う） */
 	@PostMapping("/login")
 	public String postLogin() {
 		return "redirect:/";

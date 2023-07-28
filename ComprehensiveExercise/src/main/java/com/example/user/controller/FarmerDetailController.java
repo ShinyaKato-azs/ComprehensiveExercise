@@ -20,6 +20,7 @@ public class FarmerDetailController {
 	@Autowired
 	UserService userService;
 
+	/** 詳細画面を返す */
 	@GetMapping("/detail/farmers/{farmerId}")
 	public String getFarmersDetail(@PathVariable("farmerId") Integer farmerId,
 			Model model, @ModelAttribute FarmerDetailForm farmerDetailForm) {
