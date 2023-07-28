@@ -44,7 +44,8 @@
 				<br>
 				<label for="price">価格</label>
 				<br>
-				<input type="number" name="price" th:field="*{price}" th:errorclass="is-invaid" /input>
+				<input type="number" name="price" min="0"
+				th:field="*{price}" th:errorclass="is-invaid" /input>
 				 <font color="red">
 				   <div th:errors="*{price}"></div>
 				 </font>

@@ -17,7 +17,7 @@
 		   </font>
 		   <br>
 		   <br>
-		   <input type="number" th:field="*{price}" placeholder="価格を入力"
+		   <input type="number" min="0" th:field="*{price}" placeholder="価格を入力"
 		   th:errorclass="is-invaid">
 		   <font color="red">
 			   <div th:errors="*{price}"></div>
