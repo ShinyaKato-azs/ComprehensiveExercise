@@ -21,9 +21,13 @@ public class ItemAddForm {
 	/**
 	 * 価格
 	 * マイナスの値は不可
-	 * */
+	 */
 	@Min(0)
 	private Integer price;
+
+	/**
+	 * 農家ID
+	 */
 	private Integer farmerId;
 
 }
