@@ -27,7 +27,7 @@ public class SecurityConfig {
 						.requestMatchers("/signup").permitAll()
 						.requestMatchers("/login").permitAll()
 						.requestMatchers("/css/**", "/webjars/**").permitAll()
-						.requestMatchers("/add").hasAnyAuthority("ROLE_ADMIN", "ROLE_FARMER")
+						.requestMatchers("/input").hasAnyAuthority("ROLE_ADMIN", "ROLE_FARMER")
 						.anyRequest().authenticated())
 				.csrf().disable()
 				.logout(logout -> logout
