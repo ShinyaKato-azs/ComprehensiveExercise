@@ -13,6 +13,7 @@ import lombok.Data;
 @Data
 @Component
 @Table(name = "v_user")
+/** ユーザーのエンティティクラス */
 public class VUser {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

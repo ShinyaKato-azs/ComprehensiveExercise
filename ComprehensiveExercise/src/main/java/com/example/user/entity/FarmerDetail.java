@@ -10,6 +10,7 @@ import lombok.Data;
 @Entity
 @Data
 @Component
+/** 農家詳細画面のエンティティクラス */
 public class FarmerDetail {
 
 	@Column(name = "farmer_id")
