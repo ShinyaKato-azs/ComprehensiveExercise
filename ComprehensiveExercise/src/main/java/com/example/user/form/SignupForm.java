@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
 @Data
+/** ログイン画面のフォームとバインドするためのクラス */
 public class SignupForm {
 
 	private Integer userId;
