@@ -29,7 +29,7 @@
 			</table>
 			 <a th:href="@{/}">一覧に戻る</a>
 		</div>
-		<!--更新フォームと削除ボタンは農家権限意外に見えないように設定-->
+		<!--更新フォームと削除ボタンは農家権限以外に見えないように設定-->
 		<div class="forms" style="float:left" sec:authorize="hasRole('ROLE_FARMER')">
 			<h4>名前と価格の変更</h4>
 			<form th:action="@{'/detail/'+${itemDetailForm.id}+'/update'}" method="POST" th:object="${itemDetailForm}">
