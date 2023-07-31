@@ -77,8 +77,7 @@ public class ItemDetailController {
 
 		//postが正しく機能しているかをログで確認
 		log.info(form.toString());
-		//		削除はIDの管理が面倒なのでコメントアウト中（動作確認済み）
-		//		itemService.deleteItemOne(form.getId());
+		itemService.deleteItemOne(form.getId());
 
 		return "redirect:/";
 
