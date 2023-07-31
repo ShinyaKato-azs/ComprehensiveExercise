@@ -73,7 +73,7 @@ public class ItemDetailController {
 
 	/** 削除処理 */
 	@PostMapping("/detail/{itemId}/delete")
-	public String delteItem(@ModelAttribute ItemDetailForm form) {
+	public String deleteItem(@ModelAttribute ItemDetailForm form) {
 
 		//postが正しく機能しているかをログで確認
 		log.info(form.toString());
