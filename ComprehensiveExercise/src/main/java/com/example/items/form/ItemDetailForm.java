@@ -2,6 +2,7 @@ package com.example.items.form;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 /** 商品詳細画面にデータを渡して、フォームとバインドするためのクラス */
@@ -21,8 +22,9 @@ public class ItemDetailForm {
 
 	/**
 	 *価格
-	 *マイナスの値は不可
+	 *マイナスの値とnullは不可
 	*/
+	@NotNull
 	@Min(0)
 	private Integer price;
 
